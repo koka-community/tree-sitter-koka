@@ -20,6 +20,49 @@ module.exports = grammar({
     [$.puredecl, $.fundecl],
   ],
   word: ($) => $.id,
+  rules : {
+    // =======
+    // Program
+    // =======
+    program: ($) => choice(
+      seq($.semis, "module", $.modulepath, $.moduledecl,),
+      $.moduledecl,
+    ),
+    moduledecl: ($) => choice(
+      seq($._open_brace, $.semis, $.imports, $._close_brace, $.semis,),
+      seq($.semis, $.imports,),
+    ),
+    imports: ($) => choice(
+      seq($.importdecl, $.semis1, $.imports,),
+      $.eimports,
+    ),
+    eimports: ($) => choice(
+      seq($.IMPORT_EXTERN, $.externimpbody, $.semis1, $.eimports),
+      $.declarations,
+    ),
+    importdecl: ($) => choice(
+      seq($.pub, "import", $.modulepath)
+      seq($.pub, "import", $.modulepath, "=", $.modulepath)
+    ),
+    modulepath: ($) => choice(
+      $.varid
+      $.qvarid
+    ),
+    pub: ($) => optional("pub"),
+    semis1: ($) => repeat1(alias($._semi, ";")),
+    semis: ($) => repeat(alias($._semi, ";")),
+    // ======================
+    // Top level declarations
+    // ======================
+    declarations: ($) => $.fixitydecl
+    // =================
+    // TOKEN DEFINITIONS
+    // =================
+    IMPORT_EXTERN: ($) => choice(
+      seq("import", "extern"),
+      seq("extern", "import"),
+    )
+  },
   rules: {
     // Program
     program: ($) =>
