@@ -15,6 +15,11 @@
     }
   },
   {
+    "type": "EXTERN",
+    "named": true,
+    "fields": {}
+  },
+  {
     "type": "FLOAT",
     "named": true,
     "fields": {}
@@ -23,6 +28,25 @@
     "type": "IDOP",
     "named": true,
     "fields": {}
+  },
+  {
+    "type": "IMPLICITID",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "QID",
+          "named": true
+        },
+        {
+          "type": "QIDOP",
+          "named": true
+        }
+      ]
+    }
   },
   {
     "type": "IMPORT",
@@ -2385,32 +2409,131 @@
   {
     "type": "pparameter",
     "named": true,
-    "fields": {},
-    "children": {
-      "multiple": true,
-      "required": true,
-      "types": [
-        {
-          "type": "borrow",
-          "named": true
-        },
-        {
-          "type": "expr",
-          "named": true
-        },
-        {
-          "type": "pattern",
-          "named": true
-        },
-        {
-          "type": "qimplicit",
-          "named": true
-        },
-        {
-          "type": "type",
-          "named": true
-        }
-      ]
+    "fields": {
+      "a": {
+        "multiple": true,
+        "required": false,
+        "types": [
+          {
+            "type": "borrow",
+            "named": true
+          },
+          {
+            "type": "pattern",
+            "named": true
+          }
+        ]
+      },
+      "b": {
+        "multiple": true,
+        "required": false,
+        "types": [
+          {
+            "type": ":",
+            "named": false
+          },
+          {
+            "type": "borrow",
+            "named": true
+          },
+          {
+            "type": "pattern",
+            "named": true
+          },
+          {
+            "type": "type",
+            "named": true
+          }
+        ]
+      },
+      "c": {
+        "multiple": true,
+        "required": false,
+        "types": [
+          {
+            "type": ":",
+            "named": false
+          },
+          {
+            "type": "=",
+            "named": false
+          },
+          {
+            "type": "borrow",
+            "named": true
+          },
+          {
+            "type": "expr",
+            "named": true
+          },
+          {
+            "type": "pattern",
+            "named": true
+          },
+          {
+            "type": "type",
+            "named": true
+          }
+        ]
+      },
+      "d": {
+        "multiple": true,
+        "required": false,
+        "types": [
+          {
+            "type": "=",
+            "named": false
+          },
+          {
+            "type": "borrow",
+            "named": true
+          },
+          {
+            "type": "expr",
+            "named": true
+          },
+          {
+            "type": "pattern",
+            "named": true
+          }
+        ]
+      },
+      "e": {
+        "multiple": true,
+        "required": false,
+        "types": [
+          {
+            "type": "borrow",
+            "named": true
+          },
+          {
+            "type": "qimplicit",
+            "named": true
+          }
+        ]
+      },
+      "f": {
+        "multiple": true,
+        "required": false,
+        "types": [
+          {
+            "type": ":",
+            "named": false
+          },
+          {
+            "type": "borrow",
+            "named": true
+          },
+          {
+            "type": "qimplicit",
+            "named": true
+          },
+          {
+            "type": "type",
+            "named": true
+          }
+        ]
+      }
     }
   },
   {
@@ -2640,11 +2763,7 @@
       "required": true,
       "types": [
         {
-          "type": "QID",
-          "named": true
-        },
-        {
-          "type": "QIDOP",
+          "type": "IMPLICITID",
           "named": true
         }
       ]
@@ -3733,6 +3852,10 @@
     "named": false
   },
   {
+    "type": ";",
+    "named": false
+  },
+  {
     "type": "<",
     "named": false
   },
@@ -3794,10 +3917,6 @@
   },
   {
     "type": "ELSE",
-    "named": true
-  },
-  {
-    "type": "EXTERN",
     "named": true
   },
   {
@@ -4039,6 +4158,10 @@
   {
     "type": "escape",
     "named": true
+  },
+  {
+    "type": "extern",
+    "named": false
   },
   {
     "type": "import",

@@ -245,10 +245,10 @@ AFTER_WHITESPACE:
   case '&':
   case '*':
   case '+':
-  case '@':
+  case '~':
+  case '#':
   case '\\':
   case '^':
-  case '?':
   case '.':
   case '=':
   case ')':
