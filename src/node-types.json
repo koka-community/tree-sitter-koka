@@ -1,30 +1,5 @@
 [
   {
-    "type": "CHAR",
-    "named": true,
-    "fields": {},
-    "children": {
-      "multiple": false,
-      "required": false,
-      "types": [
-        {
-          "type": "escape",
-          "named": true
-        }
-      ]
-    }
-  },
-  {
-    "type": "EXTERN",
-    "named": true,
-    "fields": {}
-  },
-  {
-    "type": "FLOAT",
-    "named": true,
-    "fields": {}
-  },
-  {
     "type": "IDOP",
     "named": true,
     "fields": {}
@@ -49,39 +24,9 @@
     }
   },
   {
-    "type": "IMPORT",
-    "named": true,
-    "fields": {}
-  },
-  {
     "type": "IMPORT_EXTERN",
     "named": true,
     "fields": {}
-  },
-  {
-    "type": "INT",
-    "named": true,
-    "fields": {}
-  },
-  {
-    "type": "OP",
-    "named": true,
-    "fields": {}
-  },
-  {
-    "type": "STRING",
-    "named": true,
-    "fields": {},
-    "children": {
-      "multiple": true,
-      "required": false,
-      "types": [
-        {
-          "type": "escape",
-          "named": true
-        }
-      ]
-    }
   },
   {
     "type": "aexpr",
@@ -107,21 +52,6 @@
     "named": true,
     "fields": {},
     "children": {
-      "multiple": false,
-      "required": true,
-      "types": [
-        {
-          "type": "aexprs1",
-          "named": true
-        }
-      ]
-    }
-  },
-  {
-    "type": "aexprs1",
-    "named": true,
-    "fields": {},
-    "children": {
       "multiple": true,
       "required": true,
       "types": [
@@ -140,10 +70,6 @@
       "multiple": true,
       "required": true,
       "types": [
-        {
-          "type": "ALIAS",
-          "named": true
-        },
         {
           "type": "kannot",
           "named": true
@@ -256,37 +182,6 @@
       "types": [
         {
           "type": "apattern",
-          "named": true
-        }
-      ]
-    }
-  },
-  {
-    "type": "appexpr",
-    "named": true,
-    "fields": {},
-    "children": {
-      "multiple": true,
-      "required": true,
-      "types": [
-        {
-          "type": "arguments",
-          "named": true
-        },
-        {
-          "type": "atom",
-          "named": true
-        },
-        {
-          "type": "block",
-          "named": true
-        },
-        {
-          "type": "fnexpr",
-          "named": true
-        },
-        {
-          "type": "name",
           "named": true
         }
       ]
@@ -418,17 +313,7 @@
   {
     "type": "behind",
     "named": true,
-    "fields": {},
-    "children": {
-      "multiple": false,
-      "required": true,
-      "types": [
-        {
-          "type": "ID_BEHIND",
-          "named": true
-        }
-      ]
-    }
+    "fields": {}
   },
   {
     "type": "binder",
@@ -455,14 +340,14 @@
     "fields": {},
     "children": {
       "multiple": true,
-      "required": true,
+      "required": false,
       "types": [
         {
           "type": "semis",
           "named": true
         },
         {
-          "type": "statements1",
+          "type": "statement",
           "named": true
         }
       ]
@@ -503,13 +388,9 @@
     "named": true,
     "fields": {},
     "children": {
-      "multiple": true,
+      "multiple": false,
       "required": true,
       "types": [
-        {
-          "type": "RARROW",
-          "named": true
-        },
         {
           "type": "blockexpr",
           "named": true
@@ -552,6 +433,21 @@
     }
   },
   {
+    "type": "char",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": false,
+      "types": [
+        {
+          "type": "escape",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "commas",
     "named": true,
     "fields": {},
@@ -576,21 +472,6 @@
       "types": [
         {
           "type": "commas",
-          "named": true
-        }
-      ]
-    }
-  },
-  {
-    "type": "con",
-    "named": true,
-    "fields": {},
-    "children": {
-      "multiple": false,
-      "required": true,
-      "types": [
-        {
-          "type": "CON",
           "named": true
         }
       ]
@@ -643,14 +524,6 @@
       "required": true,
       "types": [
         {
-          "type": "ID_LAZY",
-          "named": true
-        },
-        {
-          "type": "RARROW",
-          "named": true
-        },
-        {
           "type": "blockexpr",
           "named": true
         },
@@ -690,7 +563,7 @@
           "named": true
         },
         {
-          "type": "semis1",
+          "type": "semis",
           "named": true
         }
       ]
@@ -709,7 +582,7 @@
           "named": true
         },
         {
-          "type": "semis1",
+          "type": "semis",
           "named": true
         }
       ]
@@ -718,34 +591,16 @@
   {
     "type": "controlmod",
     "named": true,
-    "fields": {},
-    "children": {
-      "multiple": false,
-      "required": true,
-      "types": [
-        {
-          "type": "FINAL",
-          "named": true
-        },
-        {
-          "type": "RAW",
-          "named": true
-        }
-      ]
-    }
+    "fields": {}
   },
   {
     "type": "ctxexpr",
     "named": true,
     "fields": {},
     "children": {
-      "multiple": true,
+      "multiple": false,
       "required": true,
       "types": [
-        {
-          "type": "CTX",
-          "named": true
-        },
         {
           "type": "atom",
           "named": true
@@ -766,22 +621,6 @@
       "multiple": true,
       "required": true,
       "types": [
-        {
-          "type": "ASSIGN",
-          "named": true
-        },
-        {
-          "type": "FUN",
-          "named": true
-        },
-        {
-          "type": "VAL",
-          "named": true
-        },
-        {
-          "type": "VAR",
-          "named": true
-        },
         {
           "type": "apattern",
           "named": true
@@ -810,15 +649,23 @@
       "required": true,
       "types": [
         {
+          "type": "eimport",
+          "named": true
+        },
+        {
           "type": "fixitydecl",
           "named": true
         },
         {
-          "type": "semis1",
+          "type": "import",
           "named": true
         },
         {
-          "type": "topdecls",
+          "type": "semis",
+          "named": true
+        },
+        {
+          "type": "topdecl",
           "named": true
         }
       ]
@@ -827,24 +674,10 @@
   {
     "type": "effectmod",
     "named": true,
-    "fields": {},
-    "children": {
-      "multiple": true,
-      "required": true,
-      "types": [
-        {
-          "type": "ID_DIV",
-          "named": true
-        },
-        {
-          "type": "ID_LINEAR",
-          "named": true
-        }
-      ]
-    }
+    "fields": {}
   },
   {
-    "type": "eimports",
+    "type": "eimport",
     "named": true,
     "fields": {},
     "children": {
@@ -856,15 +689,7 @@
           "named": true
         },
         {
-          "type": "declarations",
-          "named": true
-        },
-        {
           "type": "externimpbody",
-          "named": true
-        },
-        {
-          "type": "semis1",
           "named": true
         }
       ]
@@ -878,18 +703,6 @@
       "multiple": true,
       "required": true,
       "types": [
-        {
-          "type": "ELIF",
-          "named": true
-        },
-        {
-          "type": "ELSE",
-          "named": true
-        },
-        {
-          "type": "THEN",
-          "named": true
-        },
         {
           "type": "blockexpr",
           "named": true
@@ -960,10 +773,6 @@
       "required": true,
       "types": [
         {
-          "type": "EXTERN",
-          "named": true
-        },
-        {
           "type": "externbody",
           "named": true
         },
@@ -995,15 +804,15 @@
       "required": true,
       "types": [
         {
-          "type": "STRING",
-          "named": true
-        },
-        {
           "type": "externtarget",
           "named": true
         },
         {
           "type": "externvals1",
+          "named": true
+        },
+        {
+          "type": "string",
           "named": true
         },
         {
@@ -1049,7 +858,7 @@
           "named": true
         },
         {
-          "type": "semis1",
+          "type": "semis",
           "named": true
         }
       ]
@@ -1058,17 +867,7 @@
   {
     "type": "externinline",
     "named": true,
-    "fields": {},
-    "children": {
-      "multiple": false,
-      "required": true,
-      "types": [
-        {
-          "type": "ID_INLINE",
-          "named": true
-        }
-      ]
-    }
+    "fields": {}
   },
   {
     "type": "externstat",
@@ -1079,15 +878,15 @@
       "required": true,
       "types": [
         {
-          "type": "STRING",
-          "named": true
-        },
-        {
           "type": "externinline",
           "named": true
         },
         {
           "type": "externtarget",
+          "named": true
+        },
+        {
+          "type": "string",
           "named": true
         }
       ]
@@ -1106,7 +905,7 @@
           "named": true
         },
         {
-          "type": "semis1",
+          "type": "semis",
           "named": true
         }
       ]
@@ -1115,25 +914,7 @@
   {
     "type": "externtarget",
     "named": true,
-    "fields": {},
-    "children": {
-      "multiple": false,
-      "required": true,
-      "types": [
-        {
-          "type": "ID_C",
-          "named": true
-        },
-        {
-          "type": "ID_CS",
-          "named": true
-        },
-        {
-          "type": "ID_JS",
-          "named": true
-        }
-      ]
-    }
+    "fields": {}
   },
   {
     "type": "externtype",
@@ -1171,7 +952,7 @@
       "required": true,
       "types": [
         {
-          "type": "STRING",
+          "type": "string",
           "named": true
         },
         {
@@ -1194,7 +975,7 @@
           "named": true
         },
         {
-          "type": "semis1",
+          "type": "semis",
           "named": true
         }
       ]
@@ -1209,7 +990,7 @@
       "required": false,
       "types": [
         {
-          "type": "INT",
+          "type": "int",
           "named": true
         }
       ]
@@ -1221,16 +1002,8 @@
     "fields": {},
     "children": {
       "multiple": true,
-      "required": true,
+      "required": false,
       "types": [
-        {
-          "type": "ID_FBIP",
-          "named": true
-        },
-        {
-          "type": "ID_FIP",
-          "named": true
-        },
         {
           "type": "fiplimit",
           "named": true
@@ -1247,23 +1020,11 @@
     "named": true,
     "fields": {},
     "children": {
-      "multiple": true,
+      "multiple": false,
       "required": true,
       "types": [
         {
-          "type": "INFIX",
-          "named": true
-        },
-        {
-          "type": "INFIXL",
-          "named": true
-        },
-        {
-          "type": "INFIXR",
-          "named": true
-        },
-        {
-          "type": "INT",
+          "type": "int",
           "named": true
         }
       ]
@@ -1293,17 +1054,18 @@
     }
   },
   {
+    "type": "float",
+    "named": true,
+    "fields": {}
+  },
+  {
     "type": "fnexpr",
     "named": true,
     "fields": {},
     "children": {
-      "multiple": true,
+      "multiple": false,
       "required": true,
       "types": [
-        {
-          "type": "FN",
-          "named": true
-        },
         {
           "type": "funbody",
           "named": true
@@ -1374,18 +1136,6 @@
       "required": true,
       "types": [
         {
-          "type": "HANDLE",
-          "named": true
-        },
-        {
-          "type": "HANDLER",
-          "named": true
-        },
-        {
-          "type": "NAMED",
-          "named": true
-        },
-        {
           "type": "ntlexpr",
           "named": true
         },
@@ -1432,18 +1182,6 @@
       "required": true,
       "types": [
         {
-          "type": "IF",
-          "named": true
-        },
-        {
-          "type": "RETURN",
-          "named": true
-        },
-        {
-          "type": "THEN",
-          "named": true
-        },
-        {
           "type": "blockexpr",
           "named": true
         },
@@ -1463,6 +1201,21 @@
     }
   },
   {
+    "type": "import",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "importdecl",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "importdecl",
     "named": true,
     "fields": {},
@@ -1470,10 +1223,6 @@
       "multiple": true,
       "required": true,
       "types": [
-        {
-          "type": "IMPORT",
-          "named": true
-        },
         {
           "type": "modulepath",
           "named": true
@@ -1486,59 +1235,23 @@
     }
   },
   {
-    "type": "imports",
-    "named": true,
-    "fields": {},
-    "children": {
-      "multiple": true,
-      "required": true,
-      "types": [
-        {
-          "type": "eimports",
-          "named": true
-        },
-        {
-          "type": "importdecl",
-          "named": true
-        },
-        {
-          "type": "semis1",
-          "named": true
-        }
-      ]
-    }
-  },
-  {
     "type": "inlinemod",
     "named": true,
-    "fields": {},
-    "children": {
-      "multiple": false,
-      "required": true,
-      "types": [
-        {
-          "type": "ID_INLINE",
-          "named": true
-        },
-        {
-          "type": "ID_NOINLINE",
-          "named": true
-        }
-      ]
-    }
+    "fields": {}
+  },
+  {
+    "type": "int",
+    "named": true,
+    "fields": {}
   },
   {
     "type": "kannot",
     "named": true,
     "fields": {},
     "children": {
-      "multiple": true,
+      "multiple": false,
       "required": true,
       "types": [
-        {
-          "type": "DCOLON",
-          "named": true
-        },
         {
           "type": "kind",
           "named": true
@@ -1569,10 +1282,6 @@
       "multiple": true,
       "required": true,
       "types": [
-        {
-          "type": "RARROW",
-          "named": true
-        },
         {
           "type": "katom",
           "named": true
@@ -1608,19 +1317,19 @@
       "required": true,
       "types": [
         {
-          "type": "CHAR",
+          "type": "char",
           "named": true
         },
         {
-          "type": "FLOAT",
+          "type": "float",
           "named": true
         },
         {
-          "type": "INT",
+          "type": "int",
           "named": true
         },
         {
-          "type": "STRING",
+          "type": "string",
           "named": true
         }
       ]
@@ -1634,10 +1343,6 @@
       "multiple": true,
       "required": true,
       "types": [
-        {
-          "type": "MASK",
-          "named": true
-        },
         {
           "type": "behind",
           "named": true
@@ -1657,14 +1362,6 @@
       "multiple": true,
       "required": true,
       "types": [
-        {
-          "type": "ID_LAZY",
-          "named": true
-        },
-        {
-          "type": "MATCH",
-          "named": true
-        },
         {
           "type": "matchrules",
           "named": true
@@ -1688,10 +1385,6 @@
       "multiple": true,
       "required": true,
       "types": [
-        {
-          "type": "RARROW",
-          "named": true
-        },
         {
           "type": "blockexpr",
           "named": true
@@ -1720,7 +1413,7 @@
           "named": true
         },
         {
-          "type": "semis1",
+          "type": "semis",
           "named": true
         }
       ]
@@ -1736,25 +1429,6 @@
       "types": [
         {
           "type": "matchrule",
-          "named": true
-        },
-        {
-          "type": "semis1",
-          "named": true
-        }
-      ]
-    }
-  },
-  {
-    "type": "moduledecl",
-    "named": true,
-    "fields": {},
-    "children": {
-      "multiple": true,
-      "required": false,
-      "types": [
-        {
-          "type": "imports",
           "named": true
         },
         {
@@ -1807,7 +1481,7 @@
     }
   },
   {
-    "type": "ntlappexpr",
+    "type": "ntlexpr",
     "named": true,
     "fields": {},
     "children": {
@@ -1825,36 +1499,6 @@
         {
           "type": "name",
           "named": true
-        }
-      ]
-    }
-  },
-  {
-    "type": "ntlexpr",
-    "named": true,
-    "fields": {},
-    "children": {
-      "multiple": false,
-      "required": true,
-      "types": [
-        {
-          "type": "ntlopexpr",
-          "named": true
-        }
-      ]
-    }
-  },
-  {
-    "type": "ntlopexpr",
-    "named": true,
-    "fields": {},
-    "children": {
-      "multiple": true,
-      "required": true,
-      "types": [
-        {
-          "type": "ntlprefixexpr",
-          "named": true
         },
         {
           "type": "qoperator",
@@ -1864,38 +1508,9 @@
     }
   },
   {
-    "type": "ntlprefixexpr",
-    "named": true,
-    "fields": {},
-    "children": {
-      "multiple": false,
-      "required": true,
-      "types": [
-        {
-          "type": "ntlappexpr",
-          "named": true
-        }
-      ]
-    }
-  },
-  {
     "type": "op",
     "named": true,
-    "fields": {},
-    "children": {
-      "multiple": false,
-      "required": false,
-      "types": [
-        {
-          "type": "ASSIGN",
-          "named": true
-        },
-        {
-          "type": "OP",
-          "named": true
-        }
-      ]
-    }
+    "fields": {}
   },
   {
     "type": "opclause",
@@ -1905,22 +1520,6 @@
       "multiple": true,
       "required": true,
       "types": [
-        {
-          "type": "CTL",
-          "named": true
-        },
-        {
-          "type": "FUN",
-          "named": true
-        },
-        {
-          "type": "RETURN",
-          "named": true
-        },
-        {
-          "type": "VAL",
-          "named": true
-        },
         {
           "type": "blockexpr",
           "named": true
@@ -1967,10 +1566,6 @@
         {
           "type": "semis",
           "named": true
-        },
-        {
-          "type": "semis1",
-          "named": true
         }
       ]
     }
@@ -1988,7 +1583,7 @@
           "named": true
         },
         {
-          "type": "semis1",
+          "type": "semis",
           "named": true
         }
       ]
@@ -2002,14 +1597,6 @@
       "multiple": true,
       "required": true,
       "types": [
-        {
-          "type": "ID_FINALLY",
-          "named": true
-        },
-        {
-          "type": "ID_INITIALLY",
-          "named": true
-        },
         {
           "type": "bodyexpr",
           "named": true
@@ -2053,18 +1640,6 @@
       "required": true,
       "types": [
         {
-          "type": "CTL",
-          "named": true
-        },
-        {
-          "type": "FUN",
-          "named": true
-        },
-        {
-          "type": "VAL",
-          "named": true
-        },
-        {
           "type": "controlmod",
           "named": true
         },
@@ -2104,7 +1679,7 @@
           "named": true
         },
         {
-          "type": "semis1",
+          "type": "semis",
           "named": true
         }
       ]
@@ -2119,7 +1694,23 @@
       "required": true,
       "types": [
         {
-          "type": "prefixexpr",
+          "type": "arguments",
+          "named": true
+        },
+        {
+          "type": "atom",
+          "named": true
+        },
+        {
+          "type": "block",
+          "named": true
+        },
+        {
+          "type": "fnexpr",
+          "named": true
+        },
+        {
+          "type": "name",
           "named": true
         },
         {
@@ -2203,21 +1794,6 @@
       "types": [
         {
           "type": "opparam",
-          "named": true
-        }
-      ]
-    }
-  },
-  {
-    "type": "override",
-    "named": true,
-    "fields": {},
-    "children": {
-      "multiple": false,
-      "required": true,
-      "types": [
-        {
-          "type": "OVERRIDE",
           "named": true
         }
       ]
@@ -2360,10 +1936,6 @@
       "multiple": true,
       "required": false,
       "types": [
-        {
-          "type": "AS",
-          "named": true
-        },
         {
           "type": "apatterns",
           "named": true
@@ -2597,35 +2169,16 @@
     }
   },
   {
-    "type": "prefixexpr",
-    "named": true,
-    "fields": {},
-    "children": {
-      "multiple": false,
-      "required": true,
-      "types": [
-        {
-          "type": "appexpr",
-          "named": true
-        }
-      ]
-    }
-  },
-  {
     "type": "program",
     "named": true,
     "root": true,
     "fields": {},
     "children": {
       "multiple": true,
-      "required": true,
+      "required": false,
       "types": [
         {
-          "type": "MODULE",
-          "named": true
-        },
-        {
-          "type": "moduledecl",
+          "type": "declarations",
           "named": true
         },
         {
@@ -2640,21 +2193,6 @@
     }
   },
   {
-    "type": "pub",
-    "named": true,
-    "fields": {},
-    "children": {
-      "multiple": false,
-      "required": true,
-      "types": [
-        {
-          "type": "PUB",
-          "named": true
-        }
-      ]
-    }
-  },
-  {
     "type": "puredecl",
     "named": true,
     "fields": {},
@@ -2662,14 +2200,6 @@
       "multiple": true,
       "required": true,
       "types": [
-        {
-          "type": "FUN",
-          "named": true
-        },
-        {
-          "type": "VAL",
-          "named": true
-        },
         {
           "type": "binder",
           "named": true
@@ -2789,13 +2319,9 @@
     "named": true,
     "fields": {},
     "children": {
-      "multiple": true,
+      "multiple": false,
       "required": true,
       "types": [
-        {
-          "type": "WITH",
-          "named": true
-        },
         {
           "type": "predicates1",
           "named": true
@@ -2823,13 +2349,9 @@
     "named": true,
     "fields": {},
     "children": {
-      "multiple": true,
+      "multiple": false,
       "required": true,
       "types": [
-        {
-          "type": "RETURN",
-          "named": true
-        },
         {
           "type": "expr",
           "named": true
@@ -2850,46 +2372,16 @@
           "named": true
         },
         {
-          "type": "semis1",
+          "type": "semis",
           "named": true
         }
       ]
     }
-  },
-  {
-    "type": "semi",
-    "named": true,
-    "fields": {}
   },
   {
     "type": "semis",
     "named": true,
-    "fields": {},
-    "children": {
-      "multiple": true,
-      "required": true,
-      "types": [
-        {
-          "type": "semi",
-          "named": true
-        }
-      ]
-    }
-  },
-  {
-    "type": "semis1",
-    "named": true,
-    "fields": {},
-    "children": {
-      "multiple": true,
-      "required": true,
-      "types": [
-        {
-          "type": "semi",
-          "named": true
-        }
-      ]
-    }
+    "fields": {}
   },
   {
     "type": "someforalls",
@@ -2899,14 +2391,6 @@
       "multiple": true,
       "required": true,
       "types": [
-        {
-          "type": "FORALL",
-          "named": true
-        },
-        {
-          "type": "SOME",
-          "named": true
-        },
         {
           "type": "typeparams1",
           "named": true
@@ -2922,10 +2406,6 @@
       "multiple": true,
       "required": true,
       "types": [
-        {
-          "type": "IN",
-          "named": true
-        },
         {
           "type": "basicexpr",
           "named": true
@@ -2950,23 +2430,15 @@
     }
   },
   {
-    "type": "statements1",
+    "type": "string",
     "named": true,
     "fields": {},
     "children": {
       "multiple": true,
-      "required": true,
+      "required": false,
       "types": [
         {
-          "type": "error",
-          "named": true
-        },
-        {
-          "type": "semis1",
-          "named": true
-        },
-        {
-          "type": "statement",
+          "type": "escape",
           "named": true
         }
       ]
@@ -2975,36 +2447,12 @@
   {
     "type": "structmod",
     "named": true,
-    "fields": {},
-    "children": {
-      "multiple": false,
-      "required": true,
-      "types": [
-        {
-          "type": "ID_REFERENCE",
-          "named": true
-        },
-        {
-          "type": "ID_VALUE",
-          "named": true
-        }
-      ]
-    }
+    "fields": {}
   },
   {
     "type": "tailmod",
     "named": true,
-    "fields": {},
-    "children": {
-      "multiple": false,
-      "required": true,
-      "types": [
-        {
-          "type": "ID_TAIL",
-          "named": true
-        }
-      ]
-    }
+    "fields": {}
   },
   {
     "type": "targuments",
@@ -3044,10 +2492,6 @@
       "multiple": true,
       "required": true,
       "types": [
-        {
-          "type": "RARROW",
-          "named": true
-        },
         {
           "type": "tatomic",
           "named": true
@@ -3167,10 +2611,6 @@
       "required": true,
       "types": [
         {
-          "type": "ABSTRACT",
-          "named": true
-        },
-        {
           "type": "aliasdecl",
           "named": true
         },
@@ -3188,44 +2628,6 @@
         },
         {
           "type": "typedecl",
-          "named": true
-        }
-      ]
-    }
-  },
-  {
-    "type": "topdecls",
-    "named": true,
-    "fields": {},
-    "children": {
-      "multiple": false,
-      "required": true,
-      "types": [
-        {
-          "type": "topdecls1",
-          "named": true
-        }
-      ]
-    }
-  },
-  {
-    "type": "topdecls1",
-    "named": true,
-    "fields": {},
-    "children": {
-      "multiple": true,
-      "required": true,
-      "types": [
-        {
-          "type": "error",
-          "named": true
-        },
-        {
-          "type": "semis1",
-          "named": true
-        },
-        {
-          "type": "topdecl",
           "named": true
         }
       ]
@@ -3308,10 +2710,6 @@
       "required": true,
       "types": [
         {
-          "type": "FORALL",
-          "named": true
-        },
-        {
           "type": "qualifier",
           "named": true
         },
@@ -3373,14 +2771,6 @@
       "required": false,
       "types": [
         {
-          "type": "CTX",
-          "named": true
-        },
-        {
-          "type": "RARROW",
-          "named": true
-        },
-        {
           "type": "commas1",
           "named": true
         },
@@ -3407,26 +2797,6 @@
       "multiple": true,
       "required": true,
       "types": [
-        {
-          "type": "EFFECT",
-          "named": true
-        },
-        {
-          "type": "IN",
-          "named": true
-        },
-        {
-          "type": "NAMED",
-          "named": true
-        },
-        {
-          "type": "STRUCT",
-          "named": true
-        },
-        {
-          "type": "TYPE",
-          "named": true
-        },
         {
           "type": "conparams",
           "named": true
@@ -3487,10 +2857,6 @@
       "required": false,
       "types": [
         {
-          "type": "CTX",
-          "named": true
-        },
-        {
           "type": "commas",
           "named": true
         },
@@ -3507,28 +2873,8 @@
     "fields": {},
     "children": {
       "multiple": false,
-      "required": true,
+      "required": false,
       "types": [
-        {
-          "type": "ID_CO",
-          "named": true
-        },
-        {
-          "type": "ID_DIV",
-          "named": true
-        },
-        {
-          "type": "ID_EXTEND",
-          "named": true
-        },
-        {
-          "type": "ID_LAZY",
-          "named": true
-        },
-        {
-          "type": "ID_OPEN",
-          "named": true
-        },
         {
           "type": "structmod",
           "named": true
@@ -3598,14 +2944,6 @@
       "required": true,
       "types": [
         {
-          "type": "IN",
-          "named": true
-        },
-        {
-          "type": "VAL",
-          "named": true
-        },
-        {
           "type": "apattern",
           "named": true
         },
@@ -3626,94 +2964,10 @@
     "fields": {},
     "children": {
       "multiple": false,
-      "required": true,
+      "required": false,
       "types": [
         {
           "type": "ID",
-          "named": true
-        },
-        {
-          "type": "ID_BEHIND",
-          "named": true
-        },
-        {
-          "type": "ID_C",
-          "named": true
-        },
-        {
-          "type": "ID_CO",
-          "named": true
-        },
-        {
-          "type": "ID_CS",
-          "named": true
-        },
-        {
-          "type": "ID_DIV",
-          "named": true
-        },
-        {
-          "type": "ID_EXTEND",
-          "named": true
-        },
-        {
-          "type": "ID_FBIP",
-          "named": true
-        },
-        {
-          "type": "ID_FILE",
-          "named": true
-        },
-        {
-          "type": "ID_FINALLY",
-          "named": true
-        },
-        {
-          "type": "ID_FIP",
-          "named": true
-        },
-        {
-          "type": "ID_INITIALLY",
-          "named": true
-        },
-        {
-          "type": "ID_INLINE",
-          "named": true
-        },
-        {
-          "type": "ID_JS",
-          "named": true
-        },
-        {
-          "type": "ID_LAZY",
-          "named": true
-        },
-        {
-          "type": "ID_LINEAR",
-          "named": true
-        },
-        {
-          "type": "ID_NOINLINE",
-          "named": true
-        },
-        {
-          "type": "ID_OPEN",
-          "named": true
-        },
-        {
-          "type": "ID_REFERENCE",
-          "named": true
-        },
-        {
-          "type": "ID_SCOPED",
-          "named": true
-        },
-        {
-          "type": "ID_TAIL",
-          "named": true
-        },
-        {
-          "type": "ID_VALUE",
           "named": true
         }
       ]
@@ -3758,10 +3012,6 @@
       "required": true,
       "types": [
         {
-          "type": "IN",
-          "named": true
-        },
-        {
           "type": "blockexpr",
           "named": true
         },
@@ -3780,14 +3030,6 @@
       "multiple": true,
       "required": true,
       "types": [
-        {
-          "type": "LARROW",
-          "named": true
-        },
-        {
-          "type": "WITH",
-          "named": true
-        },
         {
           "type": "basicexpr",
           "named": true
@@ -3840,6 +3082,10 @@
     "named": false
   },
   {
+    "type": "->",
+    "named": false
+  },
+  {
     "type": ".",
     "named": false
   },
@@ -3852,11 +3098,23 @@
     "named": false
   },
   {
+    "type": "::",
+    "named": false
+  },
+  {
+    "type": ":=",
+    "named": false
+  },
+  {
     "type": ";",
     "named": false
   },
   {
     "type": "<",
+    "named": false
+  },
+  {
+    "type": "<-",
     "named": false
   },
   {
@@ -3872,211 +3130,11 @@
     "named": false
   },
   {
-    "type": "ABSTRACT",
-    "named": true
-  },
-  {
-    "type": "ALIAS",
-    "named": true
-  },
-  {
-    "type": "AS",
-    "named": true
-  },
-  {
-    "type": "ASSIGN",
-    "named": true
-  },
-  {
-    "type": "CON",
-    "named": true
-  },
-  {
     "type": "CONID",
     "named": true
   },
   {
-    "type": "CTL",
-    "named": true
-  },
-  {
-    "type": "CTX",
-    "named": true
-  },
-  {
-    "type": "DCOLON",
-    "named": true
-  },
-  {
-    "type": "EFFECT",
-    "named": true
-  },
-  {
-    "type": "ELIF",
-    "named": true
-  },
-  {
-    "type": "ELSE",
-    "named": true
-  },
-  {
-    "type": "FINAL",
-    "named": true
-  },
-  {
-    "type": "FN",
-    "named": true
-  },
-  {
-    "type": "FORALL",
-    "named": true
-  },
-  {
-    "type": "FUN",
-    "named": true
-  },
-  {
-    "type": "HANDLE",
-    "named": true
-  },
-  {
-    "type": "HANDLER",
-    "named": true
-  },
-  {
     "type": "ID",
-    "named": true
-  },
-  {
-    "type": "ID_BEHIND",
-    "named": true
-  },
-  {
-    "type": "ID_C",
-    "named": true
-  },
-  {
-    "type": "ID_CO",
-    "named": true
-  },
-  {
-    "type": "ID_CS",
-    "named": true
-  },
-  {
-    "type": "ID_DIV",
-    "named": true
-  },
-  {
-    "type": "ID_EXTEND",
-    "named": true
-  },
-  {
-    "type": "ID_FBIP",
-    "named": true
-  },
-  {
-    "type": "ID_FILE",
-    "named": true
-  },
-  {
-    "type": "ID_FINALLY",
-    "named": true
-  },
-  {
-    "type": "ID_FIP",
-    "named": true
-  },
-  {
-    "type": "ID_INITIALLY",
-    "named": true
-  },
-  {
-    "type": "ID_INLINE",
-    "named": true
-  },
-  {
-    "type": "ID_JS",
-    "named": true
-  },
-  {
-    "type": "ID_LAZY",
-    "named": true
-  },
-  {
-    "type": "ID_LINEAR",
-    "named": true
-  },
-  {
-    "type": "ID_NOINLINE",
-    "named": true
-  },
-  {
-    "type": "ID_OPEN",
-    "named": true
-  },
-  {
-    "type": "ID_REFERENCE",
-    "named": true
-  },
-  {
-    "type": "ID_SCOPED",
-    "named": true
-  },
-  {
-    "type": "ID_TAIL",
-    "named": true
-  },
-  {
-    "type": "ID_VALUE",
-    "named": true
-  },
-  {
-    "type": "IF",
-    "named": true
-  },
-  {
-    "type": "IN",
-    "named": true
-  },
-  {
-    "type": "INFIX",
-    "named": true
-  },
-  {
-    "type": "INFIXL",
-    "named": true
-  },
-  {
-    "type": "INFIXR",
-    "named": true
-  },
-  {
-    "type": "LARROW",
-    "named": true
-  },
-  {
-    "type": "MASK",
-    "named": true
-  },
-  {
-    "type": "MATCH",
-    "named": true
-  },
-  {
-    "type": "MODULE",
-    "named": true
-  },
-  {
-    "type": "NAMED",
-    "named": true
-  },
-  {
-    "type": "OVERRIDE",
-    "named": true
-  },
-  {
-    "type": "PUB",
     "named": true
   },
   {
@@ -4092,47 +3150,7 @@
     "named": true
   },
   {
-    "type": "RARROW",
-    "named": true
-  },
-  {
-    "type": "RAW",
-    "named": true
-  },
-  {
-    "type": "RETURN",
-    "named": true
-  },
-  {
-    "type": "SOME",
-    "named": true
-  },
-  {
-    "type": "STRUCT",
-    "named": true
-  },
-  {
-    "type": "THEN",
-    "named": true
-  },
-  {
-    "type": "TYPE",
-    "named": true
-  },
-  {
-    "type": "VAL",
-    "named": true
-  },
-  {
-    "type": "VAR",
-    "named": true
-  },
-  {
     "type": "WILDCARDID",
-    "named": true
-  },
-  {
-    "type": "WITH",
     "named": true
   },
   {
@@ -4148,19 +3166,119 @@
     "named": false
   },
   {
+    "type": "abstract",
+    "named": false
+  },
+  {
+    "type": "alias",
+    "named": false
+  },
+  {
+    "type": "as",
+    "named": false
+  },
+  {
+    "type": "behind",
+    "named": false
+  },
+  {
     "type": "borrow",
     "named": true
   },
   {
-    "type": "error",
+    "type": "c",
+    "named": false
+  },
+  {
+    "type": "co",
+    "named": false
+  },
+  {
+    "type": "con",
     "named": true
+  },
+  {
+    "type": "cs",
+    "named": false
+  },
+  {
+    "type": "ctl",
+    "named": false
+  },
+  {
+    "type": "ctx",
+    "named": false
+  },
+  {
+    "type": "div",
+    "named": false
+  },
+  {
+    "type": "effect",
+    "named": false
+  },
+  {
+    "type": "elif",
+    "named": false
+  },
+  {
+    "type": "else",
+    "named": false
   },
   {
     "type": "escape",
     "named": true
   },
   {
+    "type": "extend",
+    "named": false
+  },
+  {
     "type": "extern",
+    "named": false
+  },
+  {
+    "type": "fbip",
+    "named": false
+  },
+  {
+    "type": "file",
+    "named": false
+  },
+  {
+    "type": "final",
+    "named": false
+  },
+  {
+    "type": "finally",
+    "named": false
+  },
+  {
+    "type": "fip",
+    "named": false
+  },
+  {
+    "type": "fn",
+    "named": false
+  },
+  {
+    "type": "forall",
+    "named": false
+  },
+  {
+    "type": "fun",
+    "named": false
+  },
+  {
+    "type": "handle",
+    "named": false
+  },
+  {
+    "type": "handler",
+    "named": false
+  },
+  {
+    "type": "if",
     "named": false
   },
   {
@@ -4168,8 +3286,128 @@
     "named": false
   },
   {
+    "type": "in",
+    "named": false
+  },
+  {
+    "type": "infix",
+    "named": false
+  },
+  {
+    "type": "infixl",
+    "named": false
+  },
+  {
+    "type": "infixr",
+    "named": false
+  },
+  {
+    "type": "initially",
+    "named": false
+  },
+  {
+    "type": "inline",
+    "named": false
+  },
+  {
+    "type": "js",
+    "named": false
+  },
+  {
+    "type": "lazy",
+    "named": false
+  },
+  {
+    "type": "linear",
+    "named": false
+  },
+  {
     "type": "linecomment",
     "named": true
+  },
+  {
+    "type": "mask",
+    "named": false
+  },
+  {
+    "type": "match",
+    "named": false
+  },
+  {
+    "type": "module",
+    "named": false
+  },
+  {
+    "type": "named",
+    "named": false
+  },
+  {
+    "type": "noinline",
+    "named": false
+  },
+  {
+    "type": "open",
+    "named": false
+  },
+  {
+    "type": "override",
+    "named": true
+  },
+  {
+    "type": "pub",
+    "named": true
+  },
+  {
+    "type": "raw",
+    "named": false
+  },
+  {
+    "type": "reference",
+    "named": false
+  },
+  {
+    "type": "return",
+    "named": false
+  },
+  {
+    "type": "scoped",
+    "named": false
+  },
+  {
+    "type": "some",
+    "named": false
+  },
+  {
+    "type": "struct",
+    "named": false
+  },
+  {
+    "type": "tail",
+    "named": false
+  },
+  {
+    "type": "then",
+    "named": false
+  },
+  {
+    "type": "type",
+    "named": false
+  },
+  {
+    "type": "val",
+    "named": false
+  },
+  {
+    "type": "value",
+    "named": false
+  },
+  {
+    "type": "var",
+    "named": false
+  },
+  {
+    "type": "with",
+    "named": false
   },
   {
     "type": "{",
