@@ -441,8 +441,8 @@ module.exports = grammar({
     parameters: ($) => seq($.parameter, repeat(seq($._comma, $.parameter))),
     parameter: ($) =>
       choice(
-        seq(optional($.borrow), $.paramid, ":", $.type),
-        seq(optional($.borrow), $.paramid, ":", $.type, "=", $.expr),
+        seq(optional($.borrow), optional($.pub), $.paramid, ":", $.type),
+        seq(optional($.borrow), optional($.pub), $.paramid, ":", $.type, "=", $.expr),
       ),
     paramid: ($) => choice($.identifier, $.wildcard),
     borrow: ($) => "^",
@@ -521,8 +521,7 @@ module.exports = grammar({
           $.wildcard,
         ),
       ),
-    patargs: ($) => $.patargs1,
-    patargs1: ($) => choice(seq(optional($.patargs), $._comma, $.patarg), $.patarg),
+    patargs: ($) => choice(seq(optional($.patargs), $._comma, $.patarg), $.patarg),
     patarg: ($) => choice(seq($.identifier, "=", $._apattern), $._apattern),
     handlerexpr: ($) =>
       choice(

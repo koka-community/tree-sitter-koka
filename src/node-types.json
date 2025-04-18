@@ -1658,6 +1658,10 @@
           "named": true
         },
         {
+          "type": "pub",
+          "named": true
+        },
+        {
           "type": "type",
           "named": true
         }
@@ -1723,21 +1727,6 @@
   },
   {
     "type": "patargs",
-    "named": true,
-    "fields": {},
-    "children": {
-      "multiple": false,
-      "required": true,
-      "types": [
-        {
-          "type": "patargs1",
-          "named": true
-        }
-      ]
-    }
-  },
-  {
-    "type": "patargs1",
     "named": true,
     "fields": {},
     "children": {

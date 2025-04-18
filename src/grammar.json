@@ -3726,6 +3726,18 @@
               ]
             },
             {
+              "type": "CHOICE",
+              "members": [
+                {
+                  "type": "SYMBOL",
+                  "name": "pub"
+                },
+                {
+                  "type": "BLANK"
+                }
+              ]
+            },
+            {
               "type": "SYMBOL",
               "name": "paramid"
             },
@@ -3748,6 +3760,18 @@
                 {
                   "type": "SYMBOL",
                   "name": "borrow"
+                },
+                {
+                  "type": "BLANK"
+                }
+              ]
+            },
+            {
+              "type": "CHOICE",
+              "members": [
+                {
+                  "type": "SYMBOL",
+                  "name": "pub"
                 },
                 {
                   "type": "BLANK"
@@ -4571,10 +4595,6 @@
       ]
     },
     "patargs": {
-      "type": "SYMBOL",
-      "name": "patargs1"
-    },
-    "patargs1": {
       "type": "CHOICE",
       "members": [
         {
@@ -6249,11 +6269,11 @@
     },
     "_QID": {
       "type": "PATTERN",
-      "value": "@?([a-z][a-zA-Z0-9_-]*'*\\/)+[a-z][a-zA-Z0-9_-]*'*"
+      "value": "\\??@?([a-z][a-zA-Z0-9_-]*'*\\/)+[a-z][a-zA-Z0-9_-]*'*"
     },
     "_QIDOP": {
       "type": "PATTERN",
-      "value": "([a-z][a-zA-Z0-9_-]*'*\\/)+\\(([$%&*+@!\\\\^~=.\\-:?|<>]+|\\/)\\)"
+      "value": "\\??([a-z][a-zA-Z0-9_-]*'*\\/)+\\(([$%&*+@!\\\\^~=.\\-:?|<>]+|\\/)\\)"
     },
     "IDOP": {
       "type": "SEQ",
@@ -6308,24 +6328,15 @@
       "value": "_[a-zA-Z0-9_-]*"
     },
     "IMPLICITID": {
-      "type": "SEQ",
+      "type": "CHOICE",
       "members": [
         {
-          "type": "STRING",
-          "value": "?"
+          "type": "SYMBOL",
+          "name": "_QID"
         },
         {
-          "type": "CHOICE",
-          "members": [
-            {
-              "type": "SYMBOL",
-              "name": "_QID"
-            },
-            {
-              "type": "SYMBOL",
-              "name": "_QIDOP"
-            }
-          ]
+          "type": "SYMBOL",
+          "name": "_QIDOP"
         }
       ]
     },
