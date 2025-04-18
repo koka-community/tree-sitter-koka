@@ -7,21 +7,7 @@
   {
     "type": "IMPLICITID",
     "named": true,
-    "fields": {},
-    "children": {
-      "multiple": false,
-      "required": true,
-      "types": [
-        {
-          "type": "QID",
-          "named": true
-        },
-        {
-          "type": "QIDOP",
-          "named": true
-        }
-      ]
-    }
+    "fields": {}
   },
   {
     "type": "IMPORT_EXTERN",
@@ -120,26 +106,7 @@
     }
   },
   {
-    "type": "anntype",
-    "named": true,
-    "fields": {},
-    "children": {
-      "multiple": true,
-      "required": true,
-      "types": [
-        {
-          "type": "kannot",
-          "named": true
-        },
-        {
-          "type": "type",
-          "named": true
-        }
-      ]
-    }
-  },
-  {
-    "type": "apattern",
+    "type": "apatterns",
     "named": true,
     "fields": {},
     "children": {
@@ -152,36 +119,6 @@
         },
         {
           "type": "pattern",
-          "named": true
-        }
-      ]
-    }
-  },
-  {
-    "type": "apatterns",
-    "named": true,
-    "fields": {},
-    "children": {
-      "multiple": false,
-      "required": true,
-      "types": [
-        {
-          "type": "apatterns1",
-          "named": true
-        }
-      ]
-    }
-  },
-  {
-    "type": "apatterns1",
-    "named": true,
-    "fields": {},
-    "children": {
-      "multiple": true,
-      "required": true,
-      "types": [
-        {
-          "type": "apattern",
           "named": true
         }
       ]
@@ -354,21 +291,6 @@
     }
   },
   {
-    "type": "blockexpr",
-    "named": true,
-    "fields": {},
-    "children": {
-      "multiple": false,
-      "required": true,
-      "types": [
-        {
-          "type": "expr",
-          "named": true
-        }
-      ]
-    }
-  },
-  {
     "type": "bodyexpr",
     "named": true,
     "fields": {},
@@ -377,7 +299,7 @@
       "required": true,
       "types": [
         {
-          "type": "blockexpr",
+          "type": "expr",
           "named": true
         }
       ]
@@ -421,17 +343,7 @@
   {
     "type": "conid",
     "named": true,
-    "fields": {},
-    "children": {
-      "multiple": false,
-      "required": true,
-      "types": [
-        {
-          "type": "CONID",
-          "named": true
-        }
-      ]
-    }
+    "fields": {}
   },
   {
     "type": "conparams",
@@ -442,7 +354,7 @@
       "required": false,
       "types": [
         {
-          "type": "parameters1",
+          "type": "parameters",
           "named": true
         },
         {
@@ -465,10 +377,6 @@
       "required": true,
       "types": [
         {
-          "type": "blockexpr",
-          "named": true
-        },
-        {
           "type": "con",
           "named": true
         },
@@ -478,6 +386,10 @@
         },
         {
           "type": "conparams",
+          "named": true
+        },
+        {
+          "type": "expr",
           "named": true
         },
         {
@@ -563,7 +475,7 @@
       "required": true,
       "types": [
         {
-          "type": "apattern",
+          "type": "annot",
           "named": true
         },
         {
@@ -571,11 +483,15 @@
           "named": true
         },
         {
-          "type": "blockexpr",
+          "type": "expr",
           "named": true
         },
         {
           "type": "fundecl",
+          "named": true
+        },
+        {
+          "type": "pattern",
           "named": true
         }
       ]
@@ -645,7 +561,7 @@
       "required": true,
       "types": [
         {
-          "type": "blockexpr",
+          "type": "expr",
           "named": true
         },
         {
@@ -1123,10 +1039,6 @@
       "required": true,
       "types": [
         {
-          "type": "blockexpr",
-          "named": true
-        },
-        {
           "type": "elifs",
           "named": true
         },
@@ -1143,21 +1055,6 @@
   },
   {
     "type": "import",
-    "named": true,
-    "fields": {},
-    "children": {
-      "multiple": false,
-      "required": true,
-      "types": [
-        {
-          "type": "importdecl",
-          "named": true
-        }
-      ]
-    }
-  },
-  {
-    "type": "importdecl",
     "named": true,
     "fields": {},
     "children": {
@@ -1327,10 +1224,6 @@
       "required": true,
       "types": [
         {
-          "type": "blockexpr",
-          "named": true
-        },
-        {
           "type": "expr",
           "named": true
         },
@@ -1407,7 +1300,11 @@
       "required": true,
       "types": [
         {
-          "type": "qconstructor",
+          "type": "conid",
+          "named": true
+        },
+        {
+          "type": "qconid",
           "named": true
         },
         {
@@ -1442,7 +1339,7 @@
           "named": true
         },
         {
-          "type": "qoperator",
+          "type": "op",
           "named": true
         }
       ]
@@ -1462,15 +1359,15 @@
       "required": true,
       "types": [
         {
-          "type": "blockexpr",
-          "named": true
-        },
-        {
           "type": "bodyexpr",
           "named": true
         },
         {
           "type": "controlmod",
+          "named": true
+        },
+        {
+          "type": "expr",
           "named": true
         },
         {
@@ -1655,7 +1552,7 @@
           "named": true
         },
         {
-          "type": "qoperator",
+          "type": "op",
           "named": true
         }
       ]
@@ -1772,21 +1669,6 @@
     "named": true,
     "fields": {},
     "children": {
-      "multiple": false,
-      "required": true,
-      "types": [
-        {
-          "type": "parameters1",
-          "named": true
-        }
-      ]
-    }
-  },
-  {
-    "type": "parameters1",
-    "named": true,
-    "fields": {},
-    "children": {
       "multiple": true,
       "required": true,
       "types": [
@@ -1825,11 +1707,15 @@
       "required": true,
       "types": [
         {
-          "type": "apattern",
+          "type": "annot",
           "named": true
         },
         {
           "type": "identifier",
+          "named": true
+        },
+        {
+          "type": "pattern",
           "named": true
         }
       ]
@@ -2054,21 +1940,6 @@
     "named": true,
     "fields": {},
     "children": {
-      "multiple": false,
-      "required": true,
-      "types": [
-        {
-          "type": "pparameters1",
-          "named": true
-        }
-      ]
-    }
-  },
-  {
-    "type": "pparameters1",
-    "named": true,
-    "fields": {},
-    "children": {
       "multiple": true,
       "required": true,
       "types": [
@@ -2084,11 +1955,15 @@
     "named": true,
     "fields": {},
     "children": {
-      "multiple": false,
+      "multiple": true,
       "required": true,
       "types": [
         {
-          "type": "typeapp",
+          "type": "targuments",
+          "named": true
+        },
+        {
+          "type": "typecon",
           "named": true
         }
       ]
@@ -2146,7 +2021,7 @@
           "named": true
         },
         {
-          "type": "blockexpr",
+          "type": "expr",
           "named": true
         },
         {
@@ -2171,36 +2046,7 @@
   {
     "type": "qconid",
     "named": true,
-    "fields": {},
-    "children": {
-      "multiple": false,
-      "required": true,
-      "types": [
-        {
-          "type": "QCONID",
-          "named": true
-        }
-      ]
-    }
-  },
-  {
-    "type": "qconstructor",
-    "named": true,
-    "fields": {},
-    "children": {
-      "multiple": false,
-      "required": true,
-      "types": [
-        {
-          "type": "conid",
-          "named": true
-        },
-        {
-          "type": "qconid",
-          "named": true
-        }
-      ]
-    }
+    "fields": {}
   },
   {
     "type": "qidentifier",
@@ -2208,12 +2054,8 @@
     "fields": {},
     "children": {
       "multiple": false,
-      "required": true,
+      "required": false,
       "types": [
-        {
-          "type": "QIDOP",
-          "named": true
-        },
         {
           "type": "identifier",
           "named": true
@@ -2241,21 +2083,6 @@
     }
   },
   {
-    "type": "qoperator",
-    "named": true,
-    "fields": {},
-    "children": {
-      "multiple": false,
-      "required": true,
-      "types": [
-        {
-          "type": "op",
-          "named": true
-        }
-      ]
-    }
-  },
-  {
     "type": "qualifier",
     "named": true,
     "fields": {},
@@ -2273,17 +2100,7 @@
   {
     "type": "qvarid",
     "named": true,
-    "fields": {},
-    "children": {
-      "multiple": false,
-      "required": true,
-      "types": [
-        {
-          "type": "QID",
-          "named": true
-        }
-      ]
-    }
+    "fields": {}
   },
   {
     "type": "returnexpr",
@@ -2352,11 +2169,11 @@
           "named": true
         },
         {
-          "type": "blockexpr",
+          "type": "decl",
           "named": true
         },
         {
-          "type": "decl",
+          "type": "expr",
           "named": true
         },
         {
@@ -2400,45 +2217,15 @@
     "named": true,
     "fields": {},
     "children": {
-      "multiple": false,
-      "required": true,
-      "types": [
-        {
-          "type": "targuments1",
-          "named": true
-        }
-      ]
-    }
-  },
-  {
-    "type": "targuments1",
-    "named": true,
-    "fields": {},
-    "children": {
       "multiple": true,
       "required": true,
       "types": [
         {
-          "type": "anntype",
-          "named": true
-        }
-      ]
-    }
-  },
-  {
-    "type": "tarrow",
-    "named": true,
-    "fields": {},
-    "children": {
-      "multiple": true,
-      "required": true,
-      "types": [
-        {
-          "type": "tatomic",
+          "type": "kannot",
           "named": true
         },
         {
-          "type": "tresult",
+          "type": "type",
           "named": true
         }
       ]
@@ -2457,10 +2244,6 @@
           "named": true
         },
         {
-          "type": "targuments1",
-          "named": true
-        },
-        {
           "type": "tatomic",
           "named": true
         },
@@ -2476,11 +2259,15 @@
     "named": true,
     "fields": {},
     "children": {
-      "multiple": false,
+      "multiple": true,
       "required": false,
       "types": [
         {
-          "type": "anntype",
+          "type": "kannot",
+          "named": true
+        },
+        {
+          "type": "targuments",
           "named": true
         },
         {
@@ -2488,7 +2275,11 @@
           "named": true
         },
         {
-          "type": "typeapp",
+          "type": "type",
+          "named": true
+        },
+        {
+          "type": "typecon",
           "named": true
         }
       ]
@@ -2583,11 +2374,15 @@
       "required": true,
       "types": [
         {
-          "type": "anntype",
+          "type": "identifier",
           "named": true
         },
         {
-          "type": "identifier",
+          "type": "kannot",
+          "named": true
+        },
+        {
+          "type": "type",
           "named": true
         }
       ]
@@ -2595,21 +2390,6 @@
   },
   {
     "type": "tparams",
-    "named": true,
-    "fields": {},
-    "children": {
-      "multiple": false,
-      "required": true,
-      "types": [
-        {
-          "type": "tparams1",
-          "named": true
-        }
-      ]
-    }
-  },
-  {
-    "type": "tparams1",
     "named": true,
     "fields": {},
     "children": {
@@ -2655,30 +2435,15 @@
           "named": true
         },
         {
-          "type": "tarrow",
+          "type": "tatomic",
+          "named": true
+        },
+        {
+          "type": "tresult",
           "named": true
         },
         {
           "type": "typeparams1",
-          "named": true
-        }
-      ]
-    }
-  },
-  {
-    "type": "typeapp",
-    "named": true,
-    "fields": {},
-    "children": {
-      "multiple": true,
-      "required": true,
-      "types": [
-        {
-          "type": "targuments",
-          "named": true
-        },
-        {
-          "type": "typecon",
           "named": true
         }
       ]
@@ -2870,7 +2635,11 @@
           "named": true
         },
         {
-          "type": "tarrow",
+          "type": "tatomic",
+          "named": true
+        },
+        {
+          "type": "tresult",
           "named": true
         }
       ]
@@ -2885,15 +2654,15 @@
       "required": true,
       "types": [
         {
-          "type": "apattern",
-          "named": true
-        },
-        {
-          "type": "blockexpr",
+          "type": "annot",
           "named": true
         },
         {
           "type": "expr",
+          "named": true
+        },
+        {
+          "type": "pattern",
           "named": true
         }
       ]
@@ -2902,17 +2671,7 @@
   {
     "type": "varid",
     "named": true,
-    "fields": {},
-    "children": {
-      "multiple": false,
-      "required": false,
-      "types": [
-        {
-          "type": "ID",
-          "named": true
-        }
-      ]
-    }
+    "fields": {}
   },
   {
     "type": "wildcard",
@@ -2934,11 +2693,15 @@
     "named": true,
     "fields": {},
     "children": {
-      "multiple": false,
+      "multiple": true,
       "required": true,
       "types": [
         {
-          "type": "anntype",
+          "type": "kannot",
+          "named": true
+        },
+        {
+          "type": "type",
           "named": true
         }
       ]
@@ -2953,7 +2716,7 @@
       "required": true,
       "types": [
         {
-          "type": "blockexpr",
+          "type": "expr",
           "named": true
         },
         {
@@ -3069,26 +2832,6 @@
   {
     "type": "?",
     "named": false
-  },
-  {
-    "type": "CONID",
-    "named": true
-  },
-  {
-    "type": "ID",
-    "named": true
-  },
-  {
-    "type": "QCONID",
-    "named": true
-  },
-  {
-    "type": "QID",
-    "named": true
-  },
-  {
-    "type": "QIDOP",
-    "named": true
   },
   {
     "type": "WILDCARDID",
