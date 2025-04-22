@@ -322,6 +322,11 @@ AFTER_WHITESPACE:
     }
   }
 
+  while (lexer->eof(lexer) && scanner->stack_len != 0) {
+    scanner->close_braces_to_insert++;
+    scanner->semis_to_insert++;
+    scanner_pop_indent(scanner);
+  }
   if (lexer->eof(lexer) && !scanner->eof_semi_inserted) {
     scanner->eof_semi_inserted = true;
     lexer->result_symbol = Semi;
