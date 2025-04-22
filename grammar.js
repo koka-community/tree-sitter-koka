@@ -9,7 +9,6 @@ module.exports = grammar({
   ],
   extras: ($) => [/[ \t\r\n]/, $.linecomment, $.blockcomment],
   conflicts: ($) => [
-    [$.constructors1],
     [$.opclauses1],
     [$.matchrules1],
     [$.ifexpr],
@@ -198,9 +197,8 @@ module.exports = grammar({
       ),
     commas: ($) => repeat1($._comma),
     _comma: ($) => prec.right(seq(",", optional($._end_continuation_signal))),
-    constructors: ($) => seq($.constructors1, $.semis),
-    constructors1: ($) =>
-      seq($.constructor, repeat(seq($.semis, $.constructor))),
+    constructors: ($) =>
+      repeat1(seq($.constructor, $.semis)),
     constructor: ($) =>
       choice(
         seq(
@@ -298,7 +296,7 @@ module.exports = grammar({
     fiplimit: ($) => choice(seq($._open_round_brace, $.int, ")"), seq($._open_round_brace, "_", ")")),
     tailmod: ($) => "tail",
     fundecl: ($) => seq($.identifier, $.funbody),
-    binder: ($) => choice($.identifier, seq($.identifier, ":", $.type)),
+    binder: ($) => choice($.qidentifier, seq($.qidentifier, ":", $.type)),
     funbody: ($) =>
       choice(
         seq(
@@ -465,7 +463,7 @@ module.exports = grammar({
     annot: ($) => seq(":", $.typescheme),
     _qoperator: ($) => $.op,
     qidentifier: ($) => choice($.qvarid, $._QIDOP, $.identifier),
-    identifier: ($) => choice($.varid, $.IDOP),
+    identifier: ($) => choice($.varid, $._IDOP),
     wildcard: ($) => choice($.WILDCARDID, "_"),
     qimplicit: ($) => $.IMPLICITID,
     qvarid: ($) => $._QID,
@@ -662,7 +660,7 @@ module.exports = grammar({
       choice(seq("import", "extern"), seq("extern", "import")),
     // Character classes
     _symbols: (_) => /[$%&*+@!\\^~=.\-:?|<>]+|\//,
-    _CONID: (_) => /[A-Z][a-zA-Z0-9_-]*'*/,
+    _CONID: (_) => /@?[A-Z][a-zA-Z0-9_-]*'*/,
     _ID: (_) => /@?[a-z][a-zA-Z0-9_-]*'*/,
     escape: (_) =>
       token.immediate(
@@ -687,10 +685,10 @@ module.exports = grammar({
       ),
 
     // Identifiers and operators
-    _QCONID: (_) => /([a-z][a-zA-Z0-9_-]*'*\/)+[A-Z][a-zA-Z0-9_-]*'*/,
-    _QID: (_) => /@?([a-z][a-zA-Z0-9_-]*'*\/)+[a-z][a-zA-Z0-9_-]*'*/,
+    _QCONID: (_) => /([a-z][a-zA-Z0-9_-]*'*\/)+@?[A-Z][a-zA-Z0-9_-]*'*/,
+    _QID: (_) => /([a-z][a-zA-Z0-9_-]*'*\/)+@?[a-z][a-zA-Z0-9_-]*'*/,
     _QIDOP: (_) => /([a-z][a-zA-Z0-9_-]*'*\/)+\(([$%&*+@!\\^~=.\-:?|<>]+|\/)\)/,
-    IDOP: (_) =>
+    _IDOP: (_) =>
       seq(
         "(",
         token.immediate(/[$%&*+@!\\^~=.\-:?|<>]+|\//),
@@ -699,7 +697,7 @@ module.exports = grammar({
     _OP: ($) =>
       prec.right(seq($._symbols, optional($._end_continuation_signal))),
     WILDCARDID: (_) => /_[a-zA-Z0-9_-]*/,
-    IMPLICITID: ($) => seq("?", choice($._QID, $._QIDOP)),
+    IMPLICITID: ($) => seq("?", choice($._QID, $._QIDOP, $._ID, $._IDOP)),
 
     // String
     string: ($) =>

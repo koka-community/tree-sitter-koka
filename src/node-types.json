@@ -1,10 +1,5 @@
 [
   {
-    "type": "IDOP",
-    "named": true,
-    "fields": {}
-  },
-  {
     "type": "IMPLICITID",
     "named": true,
     "fields": {}
@@ -246,7 +241,7 @@
       "required": true,
       "types": [
         {
-          "type": "identifier",
+          "type": "qidentifier",
           "named": true
         },
         {
@@ -405,25 +400,6 @@
   },
   {
     "type": "constructors",
-    "named": true,
-    "fields": {},
-    "children": {
-      "multiple": true,
-      "required": true,
-      "types": [
-        {
-          "type": "constructors1",
-          "named": true
-        },
-        {
-          "type": "semis",
-          "named": true
-        }
-      ]
-    }
-  },
-  {
-    "type": "constructors1",
     "named": true,
     "fields": {},
     "children": {
@@ -1017,12 +993,8 @@
     "fields": {},
     "children": {
       "multiple": false,
-      "required": true,
+      "required": false,
       "types": [
-        {
-          "type": "IDOP",
-          "named": true
-        },
         {
           "type": "varid",
           "named": true

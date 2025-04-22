@@ -212,37 +212,80 @@
       }
     },
     "declarations": {
-      "type": "REPEAT1",
-      "content": {
-        "type": "SEQ",
-        "members": [
-          {
-            "type": "CHOICE",
-            "members": [
-              {
-                "type": "SYMBOL",
-                "name": "import"
-              },
-              {
-                "type": "SYMBOL",
-                "name": "eimport"
-              },
-              {
-                "type": "SYMBOL",
-                "name": "fixitydecl"
-              },
-              {
-                "type": "SYMBOL",
-                "name": "topdecl"
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "SEQ",
+          "members": [
+            {
+              "type": "CHOICE",
+              "members": [
+                {
+                  "type": "SYMBOL",
+                  "name": "import"
+                },
+                {
+                  "type": "SYMBOL",
+                  "name": "eimport"
+                },
+                {
+                  "type": "SYMBOL",
+                  "name": "fixitydecl"
+                },
+                {
+                  "type": "SYMBOL",
+                  "name": "topdecl"
+                }
+              ]
+            },
+            {
+              "type": "REPEAT",
+              "content": {
+                "type": "SEQ",
+                "members": [
+                  {
+                    "type": "SYMBOL",
+                    "name": "semis"
+                  },
+                  {
+                    "type": "CHOICE",
+                    "members": [
+                      {
+                        "type": "SYMBOL",
+                        "name": "import"
+                      },
+                      {
+                        "type": "SYMBOL",
+                        "name": "eimport"
+                      },
+                      {
+                        "type": "SYMBOL",
+                        "name": "fixitydecl"
+                      },
+                      {
+                        "type": "SYMBOL",
+                        "name": "topdecl"
+                      }
+                    ]
+                  }
+                ]
               }
-            ]
-          },
-          {
-            "type": "SYMBOL",
-            "name": "semis"
-          }
-        ]
-      }
+            }
+          ]
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "semis"
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        }
+      ]
     },
     "fixitydecl": {
       "type": "SEQ",
@@ -1545,42 +1588,20 @@
       }
     },
     "constructors": {
-      "type": "SEQ",
-      "members": [
-        {
-          "type": "SYMBOL",
-          "name": "constructors1"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "semis"
-        }
-      ]
-    },
-    "constructors1": {
-      "type": "SEQ",
-      "members": [
-        {
-          "type": "SYMBOL",
-          "name": "constructor"
-        },
-        {
-          "type": "REPEAT",
-          "content": {
-            "type": "SEQ",
-            "members": [
-              {
-                "type": "SYMBOL",
-                "name": "semis"
-              },
-              {
-                "type": "SYMBOL",
-                "name": "constructor"
-              }
-            ]
+      "type": "REPEAT1",
+      "content": {
+        "type": "SEQ",
+        "members": [
+          {
+            "type": "SYMBOL",
+            "name": "constructor"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "semis"
           }
-        }
-      ]
+        ]
+      }
     },
     "constructor": {
       "type": "CHOICE",
@@ -2291,14 +2312,14 @@
       "members": [
         {
           "type": "SYMBOL",
-          "name": "identifier"
+          "name": "qidentifier"
         },
         {
           "type": "SEQ",
           "members": [
             {
               "type": "SYMBOL",
-              "name": "identifier"
+              "name": "qidentifier"
             },
             {
               "type": "STRING",
@@ -4153,7 +4174,7 @@
         },
         {
           "type": "SYMBOL",
-          "name": "IDOP"
+          "name": "_IDOP"
         }
       ]
     },
@@ -6179,7 +6200,7 @@
     },
     "_CONID": {
       "type": "PATTERN",
-      "value": "[A-Z][a-zA-Z0-9_-]*'*"
+      "value": "@?[A-Z][a-zA-Z0-9_-]*'*"
     },
     "_ID": {
       "type": "PATTERN",
@@ -6265,17 +6286,17 @@
     },
     "_QCONID": {
       "type": "PATTERN",
-      "value": "([a-z][a-zA-Z0-9_-]*'*\\/)+[A-Z][a-zA-Z0-9_-]*'*"
+      "value": "([a-z][a-zA-Z0-9_-]*'*\\/)+@?[A-Z][a-zA-Z0-9_-]*'*"
     },
     "_QID": {
       "type": "PATTERN",
-      "value": "\\??@?([a-z][a-zA-Z0-9_-]*'*\\/)+[a-z][a-zA-Z0-9_-]*'*"
+      "value": "([a-z][a-zA-Z0-9_-]*'*\\/)+@?[a-z][a-zA-Z0-9_-]*'*"
     },
     "_QIDOP": {
       "type": "PATTERN",
-      "value": "\\??([a-z][a-zA-Z0-9_-]*'*\\/)+\\(([$%&*+@!\\\\^~=.\\-:?|<>]+|\\/)\\)"
+      "value": "([a-z][a-zA-Z0-9_-]*'*\\/)+\\(([$%&*+@!\\\\^~=.\\-:?|<>]+|\\/)\\)"
     },
-    "IDOP": {
+    "_IDOP": {
       "type": "SEQ",
       "members": [
         {
@@ -6328,15 +6349,32 @@
       "value": "_[a-zA-Z0-9_-]*"
     },
     "IMPLICITID": {
-      "type": "CHOICE",
+      "type": "SEQ",
       "members": [
         {
-          "type": "SYMBOL",
-          "name": "_QID"
+          "type": "STRING",
+          "value": "?"
         },
         {
-          "type": "SYMBOL",
-          "name": "_QIDOP"
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "_QID"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "_QIDOP"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "_ID"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "_IDOP"
+            }
+          ]
         }
       ]
     },
@@ -6432,9 +6470,6 @@
     }
   ],
   "conflicts": [
-    [
-      "constructors1"
-    ],
     [
       "opclauses1"
     ],
