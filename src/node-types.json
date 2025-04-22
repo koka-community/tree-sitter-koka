@@ -2,12 +2,29 @@
   {
     "type": "IMPLICITID",
     "named": true,
-    "fields": {}
-  },
-  {
-    "type": "IMPORT_EXTERN",
-    "named": true,
-    "fields": {}
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "id",
+          "named": true
+        },
+        {
+          "type": "idop",
+          "named": true
+        },
+        {
+          "type": "qid",
+          "named": true
+        },
+        {
+          "type": "qidop",
+          "named": true
+        }
+      ]
+    }
   },
   {
     "type": "aexprs",
@@ -320,11 +337,6 @@
     "fields": {}
   },
   {
-    "type": "conid",
-    "named": true,
-    "fields": {}
-  },
-  {
     "type": "conparams",
     "named": true,
     "fields": {},
@@ -429,32 +441,69 @@
   {
     "type": "decl",
     "named": true,
-    "fields": {},
-    "children": {
-      "multiple": true,
-      "required": true,
-      "types": [
-        {
-          "type": "annot",
-          "named": true
-        },
-        {
-          "type": "binder",
-          "named": true
-        },
-        {
-          "type": "expr",
-          "named": true
-        },
-        {
-          "type": "fundecl",
-          "named": true
-        },
-        {
-          "type": "pattern",
-          "named": true
-        }
-      ]
+    "fields": {
+      "fun": {
+        "multiple": true,
+        "required": false,
+        "types": [
+          {
+            "type": "fun",
+            "named": false
+          },
+          {
+            "type": "fundecl",
+            "named": true
+          }
+        ]
+      },
+      "val": {
+        "multiple": true,
+        "required": false,
+        "types": [
+          {
+            "type": "=",
+            "named": false
+          },
+          {
+            "type": "annot",
+            "named": true
+          },
+          {
+            "type": "expr",
+            "named": true
+          },
+          {
+            "type": "pattern",
+            "named": true
+          },
+          {
+            "type": "val",
+            "named": false
+          }
+        ]
+      },
+      "var": {
+        "multiple": true,
+        "required": false,
+        "types": [
+          {
+            "type": ":=",
+            "named": false
+          },
+          {
+            "type": "binder",
+            "named": true
+          },
+          {
+            "type": "expr",
+            "named": true
+          },
+          {
+            "type": "var",
+            "named": false
+          }
+        ]
+      }
     }
   },
   {
@@ -498,13 +547,9 @@
     "named": true,
     "fields": {},
     "children": {
-      "multiple": true,
+      "multiple": false,
       "required": true,
       "types": [
-        {
-          "type": "IMPORT_EXTERN",
-          "named": true
-        },
         {
           "type": "externimpbody",
           "named": true
@@ -920,14 +965,23 @@
     "fields": {},
     "children": {
       "multiple": false,
-      "required": false,
+      "required": true,
       "types": [
+        {
+          "type": "idop",
+          "named": true
+        },
         {
           "type": "varid",
           "named": true
         }
       ]
     }
+  },
+  {
+    "type": "idop",
+    "named": true,
+    "fields": {}
   },
   {
     "type": "ifexpr",
@@ -1594,131 +1648,32 @@
   {
     "type": "pparameter",
     "named": true,
-    "fields": {
-      "a": {
-        "multiple": true,
-        "required": false,
-        "types": [
-          {
-            "type": "borrow",
-            "named": true
-          },
-          {
-            "type": "pattern",
-            "named": true
-          }
-        ]
-      },
-      "b": {
-        "multiple": true,
-        "required": false,
-        "types": [
-          {
-            "type": ":",
-            "named": false
-          },
-          {
-            "type": "borrow",
-            "named": true
-          },
-          {
-            "type": "pattern",
-            "named": true
-          },
-          {
-            "type": "type",
-            "named": true
-          }
-        ]
-      },
-      "c": {
-        "multiple": true,
-        "required": false,
-        "types": [
-          {
-            "type": ":",
-            "named": false
-          },
-          {
-            "type": "=",
-            "named": false
-          },
-          {
-            "type": "borrow",
-            "named": true
-          },
-          {
-            "type": "expr",
-            "named": true
-          },
-          {
-            "type": "pattern",
-            "named": true
-          },
-          {
-            "type": "type",
-            "named": true
-          }
-        ]
-      },
-      "d": {
-        "multiple": true,
-        "required": false,
-        "types": [
-          {
-            "type": "=",
-            "named": false
-          },
-          {
-            "type": "borrow",
-            "named": true
-          },
-          {
-            "type": "expr",
-            "named": true
-          },
-          {
-            "type": "pattern",
-            "named": true
-          }
-        ]
-      },
-      "e": {
-        "multiple": true,
-        "required": false,
-        "types": [
-          {
-            "type": "borrow",
-            "named": true
-          },
-          {
-            "type": "qimplicit",
-            "named": true
-          }
-        ]
-      },
-      "f": {
-        "multiple": true,
-        "required": false,
-        "types": [
-          {
-            "type": ":",
-            "named": false
-          },
-          {
-            "type": "borrow",
-            "named": true
-          },
-          {
-            "type": "qimplicit",
-            "named": true
-          },
-          {
-            "type": "type",
-            "named": true
-          }
-        ]
-      }
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "borrow",
+          "named": true
+        },
+        {
+          "type": "expr",
+          "named": true
+        },
+        {
+          "type": "pattern",
+          "named": true
+        },
+        {
+          "type": "qimplicit",
+          "named": true
+        },
+        {
+          "type": "type",
+          "named": true
+        }
+      ]
     }
   },
   {
@@ -1782,42 +1737,60 @@
   {
     "type": "puredecl",
     "named": true,
-    "fields": {},
-    "children": {
-      "multiple": true,
-      "required": true,
-      "types": [
-        {
-          "type": "binder",
-          "named": true
-        },
-        {
-          "type": "expr",
-          "named": true
-        },
-        {
-          "type": "fipmod",
-          "named": true
-        },
-        {
-          "type": "funbody",
-          "named": true
-        },
-        {
-          "type": "inlinemod",
-          "named": true
-        },
-        {
-          "type": "qidentifier",
-          "named": true
-        }
-      ]
+    "fields": {
+      "fun": {
+        "multiple": true,
+        "required": false,
+        "types": [
+          {
+            "type": "fipmod",
+            "named": true
+          },
+          {
+            "type": "fun",
+            "named": false
+          },
+          {
+            "type": "funbody",
+            "named": true
+          },
+          {
+            "type": "inlinemod",
+            "named": true
+          },
+          {
+            "type": "qidentifier",
+            "named": true
+          }
+        ]
+      },
+      "val": {
+        "multiple": true,
+        "required": false,
+        "types": [
+          {
+            "type": "=",
+            "named": false
+          },
+          {
+            "type": "binder",
+            "named": true
+          },
+          {
+            "type": "expr",
+            "named": true
+          },
+          {
+            "type": "inlinemod",
+            "named": true
+          },
+          {
+            "type": "val",
+            "named": false
+          }
+        ]
+      }
     }
-  },
-  {
-    "type": "qconid",
-    "named": true,
-    "fields": {}
   },
   {
     "type": "qidentifier",
@@ -1825,10 +1798,14 @@
     "fields": {},
     "children": {
       "multiple": false,
-      "required": false,
+      "required": true,
       "types": [
         {
           "type": "identifier",
+          "named": true
+        },
+        {
+          "type": "qidop",
           "named": true
         },
         {
@@ -1871,7 +1848,17 @@
   {
     "type": "qvarid",
     "named": true,
-    "fields": {}
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "qid",
+          "named": true
+        }
+      ]
+    }
   },
   {
     "type": "returnexpr",
@@ -2397,7 +2384,17 @@
   {
     "type": "varid",
     "named": true,
-    "fields": {}
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": false,
+      "types": [
+        {
+          "type": "id",
+          "named": true
+        }
+      ]
+    }
   },
   {
     "type": "wildcard",
@@ -2612,6 +2609,10 @@
     "named": true
   },
   {
+    "type": "conid",
+    "named": true
+  },
+  {
     "type": "cs",
     "named": false
   },
@@ -2690,6 +2691,10 @@
   {
     "type": "handler",
     "named": false
+  },
+  {
+    "type": "id",
+    "named": true
   },
   {
     "type": "if",
@@ -2772,7 +2777,23 @@
     "named": true
   },
   {
+    "type": "qconid",
+    "named": true
+  },
+  {
+    "type": "qid",
+    "named": true
+  },
+  {
+    "type": "qidop",
+    "named": true
+  },
+  {
     "type": "raw",
+    "named": false
+  },
+  {
+    "type": "ref",
     "named": false
   },
   {

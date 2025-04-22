@@ -55,22 +55,21 @@
   "infix"
   "infixl"
   "infixr"
-  "inject"
+  ;"inject"
   "mask"
-  "other"
-  "pub"
-  "public"
+  ;"other"
+  (pub)
   "some"
 ] @keyword
 
 [
-  "con"
-  "control"
+  (con)
+  ;"control"
   "ctl"
   "fn"
   "fun"
-  "rawctl"
-  "rcontrol"
+  ;"rawctl"
+  ;"rcontrol"
 ] @keyword.function
 
 "with" @keyword.control
@@ -85,7 +84,7 @@
 
 [
   "import"
-  "include"
+  ;"include"
   "module"
 ] @keyword.control.import
 
@@ -111,9 +110,9 @@
   "named"
   "noinline"
   "open"
-  "override"
+  (override)
   "raw"
-  "rec"
+  ;"rec"
   "ref"
   "reference"
   "scoped"
@@ -137,21 +136,14 @@
 
 ; Identifiers
 
-(conid) @constructor
+[(conid) (qconid)] @constructor
 
-(varid) @variable
-
-(qidop) @namespace
-
-(qconid) @namespace
+[(varid) (qvarid)] @variable
 
 (modulepath (varid) @namespace)
 
-(qvarid
-  (qid) @namespace)
-
 (typecon
-  (varid) @type)
+  [(varid) (qvarid)] @type)
 
 (tbinder
   (varid) @type)
@@ -174,24 +166,21 @@
 
 (puredecl
   (binder
-    (identifier
-      [(varid) (idop)] @constant)))
+    (qidentifier) @constant))
+      
 
 ; Function definitions
 
-(operation
-  (identifier
-    [(varid) (idop)] @function))
+; (operation
+;   (identifier
+;     [(varid) (idop)] @function))
 
-(fundecl
-  (funid
-    (identifier
-      [(varid) (idop)] @function)))
+; (fundecl
+;   (identifier) @function)
 
 (puredecl
-  (funid
-    (identifier
-      [(varid) (idop)] @function)))
+  (qidentifier) @function)
+  
 
 ; Function calls
 
@@ -199,37 +188,3 @@
   "initially"
   "finally"
 ] @function.special
-
-(appexpr
-  (appexpr
-    field: (atom
-      (qidentifier
-        [
-          (qvarid) @variable
-          (qidop) @variable
-          (identifier
-            [(varid) (idop)] @variable)
-        ])))
-  "[")
-
-(appexpr
-  field: (atom
-    (qidentifier
-      [
-        (qvarid) @function
-        (qidop) @function
-        (identifier
-          [(varid) (idop)] @function)
-      ])))
-
-(appexpr
-  function: (appexpr
-    (atom
-      (qidentifier
-        [
-          (qvarid) @function
-          (qidop) @function
-          (identifier
-            [(varid) (idop)] @function)
-        ])))
-  ["(" (block) (fnexpr)])
