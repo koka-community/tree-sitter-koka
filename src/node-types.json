@@ -10,7 +10,7 @@
     "fields": {}
   },
   {
-    "type": "aexpr",
+    "type": "aexprs",
     "named": true,
     "fields": {},
     "children": {
@@ -23,21 +23,6 @@
         },
         {
           "type": "expr",
-          "named": true
-        }
-      ]
-    }
-  },
-  {
-    "type": "aexprs",
-    "named": true,
-    "fields": {},
-    "children": {
-      "multiple": true,
-      "required": true,
-      "types": [
-        {
-          "type": "aexpr",
           "named": true
         }
       ]
@@ -228,11 +213,6 @@
     }
   },
   {
-    "type": "behind",
-    "named": true,
-    "fields": {}
-  },
-  {
     "type": "binder",
     "named": true,
     "fields": {},
@@ -309,7 +289,11 @@
       "required": true,
       "types": [
         {
-          "type": "aexpr",
+          "type": "annot",
+          "named": true
+        },
+        {
+          "type": "expr",
           "named": true
         }
       ]
@@ -587,7 +571,7 @@
       "required": false,
       "types": [
         {
-          "type": "externstats1",
+          "type": "externstat",
           "named": true
         },
         {
@@ -641,7 +625,11 @@
           "named": true
         },
         {
-          "type": "externvals1",
+          "type": "externval",
+          "named": true
+        },
+        {
+          "type": "semis",
           "named": true
         },
         {
@@ -657,29 +645,6 @@
   },
   {
     "type": "externimpbody",
-    "named": true,
-    "fields": {},
-    "children": {
-      "multiple": true,
-      "required": true,
-      "types": [
-        {
-          "type": "externimp",
-          "named": true
-        },
-        {
-          "type": "externimps1",
-          "named": true
-        },
-        {
-          "type": "semis",
-          "named": true
-        }
-      ]
-    }
-  },
-  {
-    "type": "externimps1",
     "named": true,
     "fields": {},
     "children": {
@@ -720,25 +685,6 @@
         },
         {
           "type": "string",
-          "named": true
-        }
-      ]
-    }
-  },
-  {
-    "type": "externstats1",
-    "named": true,
-    "fields": {},
-    "children": {
-      "multiple": true,
-      "required": true,
-      "types": [
-        {
-          "type": "externstat",
-          "named": true
-        },
-        {
-          "type": "semis",
           "named": true
         }
       ]
@@ -790,25 +736,6 @@
         },
         {
           "type": "varid",
-          "named": true
-        }
-      ]
-    }
-  },
-  {
-    "type": "externvals1",
-    "named": true,
-    "fields": {},
-    "children": {
-      "multiple": true,
-      "required": true,
-      "types": [
-        {
-          "type": "externval",
-          "named": true
-        },
-        {
-          "type": "semis",
           "named": true
         }
       ]
@@ -876,7 +803,7 @@
           "named": true
         },
         {
-          "type": "oplist1",
+          "type": "identifier",
           "named": true
         },
         {
@@ -1097,21 +1024,6 @@
           "named": true
         },
         {
-          "type": "kinds1",
-          "named": true
-        }
-      ]
-    }
-  },
-  {
-    "type": "kinds1",
-    "named": true,
-    "fields": {},
-    "children": {
-      "multiple": true,
-      "required": true,
-      "types": [
-        {
           "type": "kind",
           "named": true
         }
@@ -1150,13 +1062,9 @@
     "named": true,
     "fields": {},
     "children": {
-      "multiple": true,
+      "multiple": false,
       "required": true,
       "types": [
-        {
-          "type": "behind",
-          "named": true
-        },
         {
           "type": "tbasic",
           "named": true
@@ -1200,7 +1108,7 @@
           "named": true
         },
         {
-          "type": "patterns1",
+          "type": "patterns",
           "named": true
         }
       ]
@@ -1208,25 +1116,6 @@
   },
   {
     "type": "matchrules",
-    "named": true,
-    "fields": {},
-    "children": {
-      "multiple": true,
-      "required": true,
-      "types": [
-        {
-          "type": "matchrules1",
-          "named": true
-        },
-        {
-          "type": "semis",
-          "named": true
-        }
-      ]
-    }
-  },
-  {
-    "type": "matchrules1",
     "named": true,
     "fields": {},
     "children": {
@@ -1368,25 +1257,6 @@
     "children": {
       "multiple": true,
       "required": false,
-      "types": [
-        {
-          "type": "opclauses1",
-          "named": true
-        },
-        {
-          "type": "semis",
-          "named": true
-        }
-      ]
-    }
-  },
-  {
-    "type": "opclauses1",
-    "named": true,
-    "fields": {},
-    "children": {
-      "multiple": true,
-      "required": true,
       "types": [
         {
           "type": "opclausex",
@@ -1531,21 +1401,6 @@
     }
   },
   {
-    "type": "oplist1",
-    "named": true,
-    "fields": {},
-    "children": {
-      "multiple": true,
-      "required": true,
-      "types": [
-        {
-          "type": "identifier",
-          "named": true
-        }
-      ]
-    }
-  },
-  {
     "type": "opparam",
     "named": true,
     "fields": {},
@@ -1566,36 +1421,6 @@
   },
   {
     "type": "opparams",
-    "named": true,
-    "fields": {},
-    "children": {
-      "multiple": false,
-      "required": false,
-      "types": [
-        {
-          "type": "opparams0",
-          "named": true
-        }
-      ]
-    }
-  },
-  {
-    "type": "opparams0",
-    "named": true,
-    "fields": {},
-    "children": {
-      "multiple": false,
-      "required": true,
-      "types": [
-        {
-          "type": "opparams1",
-          "named": true
-        }
-      ]
-    }
-  },
-  {
-    "type": "opparams1",
     "named": true,
     "fields": {},
     "children": {
@@ -1752,7 +1577,7 @@
     }
   },
   {
-    "type": "patterns1",
+    "type": "patterns",
     "named": true,
     "fields": {},
     "children": {
@@ -1931,21 +1756,6 @@
     }
   },
   {
-    "type": "predicates1",
-    "named": true,
-    "fields": {},
-    "children": {
-      "multiple": true,
-      "required": true,
-      "types": [
-        {
-          "type": "predicate",
-          "named": true
-        }
-      ]
-    }
-  },
-  {
     "type": "program",
     "named": true,
     "root": true,
@@ -2048,11 +1858,11 @@
     "named": true,
     "fields": {},
     "children": {
-      "multiple": false,
+      "multiple": true,
       "required": true,
       "types": [
         {
-          "type": "predicates1",
+          "type": "predicate",
           "named": true
         }
       ]
@@ -2111,7 +1921,7 @@
       "required": true,
       "types": [
         {
-          "type": "typeparams1",
+          "type": "typeparams",
           "named": true
         }
       ]
@@ -2266,36 +2076,6 @@
     }
   },
   {
-    "type": "tbinders",
-    "named": true,
-    "fields": {},
-    "children": {
-      "multiple": false,
-      "required": true,
-      "types": [
-        {
-          "type": "tbinders1",
-          "named": true
-        }
-      ]
-    }
-  },
-  {
-    "type": "tbinders1",
-    "named": true,
-    "fields": {},
-    "children": {
-      "multiple": true,
-      "required": true,
-      "types": [
-        {
-          "type": "tbinder",
-          "named": true
-        }
-      ]
-    }
-  },
-  {
     "type": "topdecl",
     "named": true,
     "fields": {},
@@ -2404,7 +2184,7 @@
           "named": true
         },
         {
-          "type": "typeparams1",
+          "type": "typeparams",
           "named": true
         }
       ]
@@ -2554,26 +2334,11 @@
     "named": true,
     "fields": {},
     "children": {
-      "multiple": false,
-      "required": true,
-      "types": [
-        {
-          "type": "typeparams1",
-          "named": true
-        }
-      ]
-    }
-  },
-  {
-    "type": "typeparams1",
-    "named": true,
-    "fields": {},
-    "children": {
-      "multiple": false,
+      "multiple": true,
       "required": false,
       "types": [
         {
-          "type": "tbinders",
+          "type": "tbinder",
           "named": true
         }
       ]
