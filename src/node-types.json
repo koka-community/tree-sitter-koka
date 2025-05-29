@@ -1734,29 +1734,76 @@
   {
     "type": "pattern",
     "named": true,
-    "fields": {},
+    "fields": {
+      "constructor": {
+        "multiple": true,
+        "required": false,
+        "types": [
+          {
+            "type": "(",
+            "named": false
+          },
+          {
+            "type": ")",
+            "named": false
+          },
+          {
+            "type": "conid",
+            "named": true
+          },
+          {
+            "type": "patargs",
+            "named": true
+          }
+        ]
+      },
+      "list": {
+        "multiple": true,
+        "required": false,
+        "types": [
+          {
+            "type": "[",
+            "named": false
+          },
+          {
+            "type": "]",
+            "named": false
+          },
+          {
+            "type": "apatterns",
+            "named": true
+          }
+        ]
+      },
+      "tuple": {
+        "multiple": true,
+        "required": false,
+        "types": [
+          {
+            "type": "(",
+            "named": false
+          },
+          {
+            "type": ")",
+            "named": false
+          },
+          {
+            "type": "apatterns",
+            "named": true
+          }
+        ]
+      }
+    },
     "children": {
       "multiple": true,
       "required": false,
       "types": [
-        {
-          "type": "apatterns",
-          "named": true
-        },
-        {
-          "type": "conid",
-          "named": true
-        },
         {
           "type": "identifier",
           "named": true
         },
         {
           "type": "literal",
-          "named": true
-        },
-        {
-          "type": "patargs",
           "named": true
         },
         {
