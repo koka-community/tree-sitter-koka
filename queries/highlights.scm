@@ -7,15 +7,13 @@
 
 ; Literals
 
-[
-  (string)
-  (char)
-] @string
+(string) @string
+(char) @character
 
-(escape) @constant.character.escape
+(escape) @string.escape
 
-(float) @constant.numeric.float
-(int) @constant.numeric.integer
+(float) @number.float
+(int) @number
 
 ; Delimiters
 
@@ -86,7 +84,7 @@
   "import"
   ;"include"
   "module"
-] @keyword.control.import
+] @keyword.import
 
 [
   "alias"
@@ -129,18 +127,15 @@
   "~"
   "="
   ":="
-  (idop)
-  (op)
-  (qidop)
+  ; (idop)
+  ; (op)
+  ; (qidop)
 ] @operator
 
 ; Identifiers
 
-[(conid) (qconid)] @constructor
 
-[(varid) (qvarid)] @variable
-
-(modulepath (varid) @namespace)
+(modulepath) @module
 
 (typecon
   [(varid) (qvarid)] @type)
@@ -171,20 +166,53 @@
 
 ; Function definitions
 
-; (operation
-;   (identifier
-;     [(varid) (idop)] @function))
-
-; (fundecl
-;   (identifier) @function)
+(fundecl
+  (identifier) @function)
 
 (puredecl
   (qidentifier) @function)
+
+; Effect definitions/usages
+
+(opclause
+  (qidentifier) @function)
+
+(operation
+  (identifier) @function)
   
 
 ; Function calls
 
+(opexpr
+  (atom
+    (name) @function.call)
+  .
+  [
+    call: "(" (arguments)? ")"
+    trailing_lambda: [(block) (fnexpr)]
+  ])
+
+(opexpr
+  (atom)
+  (name) @function.call)
+
+(ntlexpr
+  (atom
+    (name) @function.call)
+  (arguments))
+
+(ntlexpr
+  (atom)
+  (name) @function.call)
+
+(argument
+  [(identifier) (qimplicit)] @variable.parameter
+  "="
+  (expr))
+
+[(conid) (qconid)] @constructor
+
 [
   "initially"
   "finally"
-] @function.special
+] @function.builtin

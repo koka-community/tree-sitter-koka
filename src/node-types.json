@@ -1236,21 +1236,86 @@
   {
     "type": "ntlexpr",
     "named": true,
-    "fields": {},
+    "fields": {
+      "call": {
+        "multiple": true,
+        "required": false,
+        "types": [
+          {
+            "type": "(",
+            "named": false
+          },
+          {
+            "type": ")",
+            "named": false
+          },
+          {
+            "type": "arguments",
+            "named": true
+          }
+        ]
+      },
+      "dot": {
+        "multiple": true,
+        "required": false,
+        "types": [
+          {
+            "type": ".",
+            "named": false
+          },
+          {
+            "type": "name",
+            "named": true
+          }
+        ]
+      },
+      "dotcall": {
+        "multiple": true,
+        "required": false,
+        "types": [
+          {
+            "type": "(",
+            "named": false
+          },
+          {
+            "type": ")",
+            "named": false
+          },
+          {
+            "type": ".",
+            "named": false
+          },
+          {
+            "type": "arguments",
+            "named": true
+          }
+        ]
+      },
+      "index": {
+        "multiple": true,
+        "required": false,
+        "types": [
+          {
+            "type": "[",
+            "named": false
+          },
+          {
+            "type": "]",
+            "named": false
+          },
+          {
+            "type": "arguments",
+            "named": true
+          }
+        ]
+      }
+    },
     "children": {
       "multiple": true,
       "required": true,
       "types": [
         {
-          "type": "arguments",
-          "named": true
-        },
-        {
           "type": "atom",
-          "named": true
-        },
-        {
-          "type": "name",
           "named": true
         },
         {
@@ -1422,29 +1487,100 @@
   {
     "type": "opexpr",
     "named": true,
-    "fields": {},
+    "fields": {
+      "call": {
+        "multiple": true,
+        "required": false,
+        "types": [
+          {
+            "type": "(",
+            "named": false
+          },
+          {
+            "type": ")",
+            "named": false
+          },
+          {
+            "type": "arguments",
+            "named": true
+          }
+        ]
+      },
+      "dot": {
+        "multiple": true,
+        "required": false,
+        "types": [
+          {
+            "type": ".",
+            "named": false
+          },
+          {
+            "type": "name",
+            "named": true
+          }
+        ]
+      },
+      "dotcall": {
+        "multiple": true,
+        "required": false,
+        "types": [
+          {
+            "type": "(",
+            "named": false
+          },
+          {
+            "type": ")",
+            "named": false
+          },
+          {
+            "type": ".",
+            "named": false
+          },
+          {
+            "type": "arguments",
+            "named": true
+          }
+        ]
+      },
+      "index": {
+        "multiple": true,
+        "required": false,
+        "types": [
+          {
+            "type": "[",
+            "named": false
+          },
+          {
+            "type": "]",
+            "named": false
+          },
+          {
+            "type": "arguments",
+            "named": true
+          }
+        ]
+      },
+      "trailing_lambda": {
+        "multiple": true,
+        "required": false,
+        "types": [
+          {
+            "type": "block",
+            "named": true
+          },
+          {
+            "type": "fnexpr",
+            "named": true
+          }
+        ]
+      }
+    },
     "children": {
       "multiple": true,
       "required": true,
       "types": [
         {
-          "type": "arguments",
-          "named": true
-        },
-        {
           "type": "atom",
-          "named": true
-        },
-        {
-          "type": "block",
-          "named": true
-        },
-        {
-          "type": "fnexpr",
-          "named": true
-        },
-        {
-          "type": "name",
           "named": true
         },
         {
@@ -2226,15 +2362,192 @@
   {
     "type": "typedecl",
     "named": true,
-    "fields": {},
+    "fields": {
+      "effect_multiple": {
+        "multiple": true,
+        "required": false,
+        "types": [
+          {
+            "type": "effect",
+            "named": false
+          },
+          {
+            "type": "effectmod",
+            "named": true
+          },
+          {
+            "type": "kannot",
+            "named": true
+          },
+          {
+            "type": "opdecls",
+            "named": true
+          },
+          {
+            "type": "typeparams",
+            "named": true
+          },
+          {
+            "type": "varid",
+            "named": true
+          }
+        ]
+      },
+      "effect_single": {
+        "multiple": true,
+        "required": false,
+        "types": [
+          {
+            "type": "effect",
+            "named": false
+          },
+          {
+            "type": "effectmod",
+            "named": true
+          },
+          {
+            "type": "kannot",
+            "named": true
+          },
+          {
+            "type": "operation",
+            "named": true
+          },
+          {
+            "type": "typeparams",
+            "named": true
+          }
+        ]
+      },
+      "named_effect_multiple": {
+        "multiple": true,
+        "required": false,
+        "types": [
+          {
+            "type": "effect",
+            "named": false
+          },
+          {
+            "type": "effectmod",
+            "named": true
+          },
+          {
+            "type": "kannot",
+            "named": true
+          },
+          {
+            "type": "named",
+            "named": false
+          },
+          {
+            "type": "opdecls",
+            "named": true
+          },
+          {
+            "type": "typeparams",
+            "named": true
+          },
+          {
+            "type": "varid",
+            "named": true
+          }
+        ]
+      },
+      "named_effect_single": {
+        "multiple": true,
+        "required": false,
+        "types": [
+          {
+            "type": "effect",
+            "named": false
+          },
+          {
+            "type": "effectmod",
+            "named": true
+          },
+          {
+            "type": "kannot",
+            "named": true
+          },
+          {
+            "type": "named",
+            "named": false
+          },
+          {
+            "type": "operation",
+            "named": true
+          },
+          {
+            "type": "typeparams",
+            "named": true
+          }
+        ]
+      },
+      "struct": {
+        "multiple": true,
+        "required": false,
+        "types": [
+          {
+            "type": "conparams",
+            "named": true
+          },
+          {
+            "type": "kannot",
+            "named": true
+          },
+          {
+            "type": "struct",
+            "named": false
+          },
+          {
+            "type": "structmod",
+            "named": true
+          },
+          {
+            "type": "typeid",
+            "named": true
+          },
+          {
+            "type": "typeparams",
+            "named": true
+          }
+        ]
+      },
+      "type": {
+        "multiple": true,
+        "required": false,
+        "types": [
+          {
+            "type": "kannot",
+            "named": true
+          },
+          {
+            "type": "type",
+            "named": false
+          },
+          {
+            "type": "typebody",
+            "named": true
+          },
+          {
+            "type": "typeid",
+            "named": true
+          },
+          {
+            "type": "typemod",
+            "named": true
+          },
+          {
+            "type": "typeparams",
+            "named": true
+          }
+        ]
+      }
+    },
     "children": {
       "multiple": true,
-      "required": true,
+      "required": false,
       "types": [
-        {
-          "type": "conparams",
-          "named": true
-        },
         {
           "type": "effectmod",
           "named": true
@@ -2248,27 +2561,7 @@
           "named": true
         },
         {
-          "type": "operation",
-          "named": true
-        },
-        {
-          "type": "structmod",
-          "named": true
-        },
-        {
           "type": "type",
-          "named": true
-        },
-        {
-          "type": "typebody",
-          "named": true
-        },
-        {
-          "type": "typeid",
-          "named": true
-        },
-        {
-          "type": "typemod",
           "named": true
         },
         {

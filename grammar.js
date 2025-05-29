@@ -125,38 +125,38 @@ module.exports = grammar({
       ),
     typedecl: ($) =>
       choice(
-        seq(
+        field("type", seq(
           optional($.typemod),
           "type",
           $.typeid,
           optional($.typeparams),
           optional($.kannot),
           optional($.typebody),
-        ),
-        seq(
+        )),
+        field("struct", seq(
           optional($.structmod),
           "struct",
           $.typeid,
           optional($.typeparams),
           optional($.kannot),
           optional($.conparams),
-        ),
-        seq(
+        )),
+        field("effect_multiple", seq(
           optional($.effectmod),
           "effect",
           $.varid,
           optional($.typeparams),
           optional($.kannot),
           $.opdecls,
-        ),
-        seq(
+        )),
+        field("effect_single", seq(
           optional($.effectmod),
           "effect",
           optional($.typeparams),
           optional($.kannot),
           $.operation,
-        ),
-        seq(
+        )),
+        field("named_effect_multiple", seq(
           "named",
           optional($.effectmod),
           "effect",
@@ -164,15 +164,15 @@ module.exports = grammar({
           optional($.typeparams),
           optional($.kannot),
           $.opdecls,
-        ),
-        seq(
+        )),
+        field("named_effect_single", seq(
           "named",
           optional($.effectmod),
           "effect",
           optional($.typeparams),
           optional($.kannot),
           $.operation,
-        ),
+        )),
         seq(
           "named",
           optional($.effectmod),
@@ -404,12 +404,12 @@ module.exports = grammar({
           $.atom,
           repeat(
             choice(
-              seq($._open_round_brace, optional($.arguments), ")"),
-              seq($._open_square_brace, optional($.arguments), "]"),
-              seq(".", $.name),
-              seq(".", $._open_round_brace, optional($.arguments), ")"),
-              $.block,
-              $.fnexpr,
+              field("call", seq($._open_round_brace, optional($.arguments), ")")),
+              field("index", seq($._open_square_brace, optional($.arguments), "]")),
+              field("dot", seq(".", $.name)),
+              field("dotcall", seq(".", $._open_round_brace, optional($.arguments), ")")),
+              field("trailing_lambda", $.block),
+              field("trailing_lambda", $.fnexpr),
             ),
           ),
         ),
@@ -422,10 +422,10 @@ module.exports = grammar({
           $.atom,
           repeat(
             choice(
-              seq($._open_round_brace, optional($.arguments), ")"),
-              seq($._open_square_brace, optional($.arguments), "]"),
-              seq(".", $.name),
-              seq(".", $._open_round_brace, optional($.arguments), ")"),
+              field("call", seq($._open_round_brace, optional($.arguments), ")")),
+              field("index", seq($._open_square_brace, optional($.arguments), "]")),
+              field("dot", seq(".", $.name)),
+              field("dotcall", seq(".", $._open_round_brace, optional($.arguments), ")")),
             ),
           ),
         ),
@@ -535,10 +535,10 @@ module.exports = grammar({
         repeat(seq($.identifier, "as")),
         choice(
           $.identifier,
-          $.conid,
-          seq($.conid, $._open_round_brace, optional($.patargs), ")"),
-          seq($._open_round_brace, optional($.apatterns), ")"),
-          seq($._open_square_brace, optional($.apatterns), "]"),
+          field("constructor", $.conid),
+          field("constructor", seq($.conid, $._open_round_brace, optional($.patargs), ")")),
+          field("tuple", seq($._open_round_brace, optional($.apatterns), ")")),
+          field("list", seq($._open_square_brace, optional($.apatterns), "]")),
           $.literal,
           $.wildcard,
         ),
@@ -689,9 +689,6 @@ module.exports = grammar({
         ),
       ),
     katom: ($) => $.conid,
-    // =================
-    // CUSTOM DEFINITIONS
-    // =================
     _open_brace_: ($) => alias($._open_brace, "{"),
     _close_brace_: ($) => alias($._close_brace, "}"),
     _open_square_brace: ($) =>
