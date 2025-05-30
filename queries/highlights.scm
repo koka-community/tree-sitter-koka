@@ -54,6 +54,7 @@
   "infixl"
   "infixr"
   ;"inject"
+  "lazy"
   "mask"
   ;"other"
   (pub)
