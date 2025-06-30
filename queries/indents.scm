@@ -1,15 +1,9 @@
 [
-  (matchexpr)
-  (matchrule)
-  (topdecl)
-  (constructor)
-  (handlerexpr)
-] @indent
-[
   (opexpr [index: (arguments) call: (arguments)]) ; Applications.
   (atom ["[" "("]) ; Lists and tuples.
   (funbody)
   (block)
+  (constructor)
   (handlerexpr)
   (opclausex)
 ] @indent
