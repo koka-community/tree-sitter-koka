@@ -447,7 +447,8 @@ module.exports = grammar({
     name: ($) => choice($.qidentifier, $._qconstructor, $.qimplicit),
     literal: ($) => choice($.int, $.float, $.char, $.string),
     mask: ($) =>
-      seq("mask", optional("behind"), $._open_angle_brace, $.tbasic, ">"),
+      seq("mask", optional($.behindmod), $._open_angle_brace, $.tbasic, ">"),
+    behindmod: ($) => "behind",
     ctxexpr: ($) => seq("ctx", $.atom),
     ctxhole: ($) => "_",
     arguments: ($) => seq($.argument, repeat(seq($._comma, $.argument))),
@@ -523,7 +524,7 @@ module.exports = grammar({
     _qconstructor: ($) => choice($.conid, $.qconid),
     qconid: ($) => $.qconid,
     conid: ($) => $.conid,
-    op: ($) => choice($.op, ">", $._open_angle_brace, "|", ":="),
+    op: ($) => choice($.OP, ">", $._open_angle_brace, "|", ":="),
     matchrules: ($) => repeat1(seq($.matchrule, $.semis)),
     matchrule: ($) =>
       choice(
@@ -591,7 +592,7 @@ module.exports = grammar({
     opclause: ($) =>
       choice(
         seq("val", $.qidentifier, "=", $._blockexpr),
-        seq("val", $.qidentifier, ":", $.type, "=", $._blockexpr),
+       seq("val", $.qidentifier, ":", $.type, "=", $._blockexpr),
         seq("fun", $.qidentifier, $.opparams, $.bodyexpr),
         seq(
           choice(
@@ -738,7 +739,7 @@ module.exports = grammar({
         token.immediate(/[$%&*+@!\\^~=.\-:?|<>]+|\//),
         token.immediate(")"),
       ),
-    op: ($) =>
+    OP: ($) =>
       prec.right(seq($._symbols, optional($._end_continuation_signal))),
     WILDCARDID: (_) => /_[a-zA-Z0-9_-]*/,
     IMPLICITID: ($) => seq("?", choice($.qid, $.qidop, $.id, $.idop)),

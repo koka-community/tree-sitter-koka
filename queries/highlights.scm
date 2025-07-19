@@ -44,7 +44,6 @@
 
 [
   "as"
-  "behind"
   (externtarget)
   "forall"
   "handle"
@@ -53,22 +52,25 @@
   "infix"
   "infixl"
   "infixr"
-  ;"inject"
-  "lazy"
   "mask"
-  ;"other"
+  (behindmod)
   (pub)
   "some"
 ] @keyword
 
+; Lazy constructor
+(constructor
+  "lazy" @keyword)
+
+; Lazy match
+(matchexpr
+  "lazy" @keyword)
+
 [
   (con)
-  ;"control"
   "ctl"
   "fn"
   "fun"
-  ;"rawctl"
-  ;"rcontrol"
 ] @keyword.function
 
 "with" @keyword.control
@@ -98,26 +100,22 @@
 
 [
   "abstract"
-  "co"
-  "extend"
   "extern"
-  "fbip"
   "final"
-  "fip"
-  "inline"
-  "linear"
+  (inlinemod)
+  (externinline)
+  (typemod)
+  (structmod)
+  (effectmod)
   "named"
-  "noinline"
-  "open"
   (override)
-  "raw"
-  ;"rec"
-  "ref"
-  "reference"
-  "scoped"
-  "tail"
-  "value"
+  (controlmod)
+  ;"scoped" ; scoped is actually an effect modifier, but it is not in the current parser.
+  (tailmod)
 ] @keyword.storage.modifier
+
+(fipmod
+  ["fip" "fbip"] @keyword.storage.modifier)
 
 "return" @keyword.control.return
 
@@ -128,15 +126,39 @@
   "~"
   "="
   ":="
-  ; (idop)
-  ; (op)
-  ; (qidop)
+  (idop)
+  (op)
+  (qidop)
 ] @operator
 
-; Identifiers
-
-
 (modulepath) @module
+
+; Variables
+
+(pattern
+  (identifier
+    (varid) @variable))
+
+(paramid
+  (identifier
+    (varid) @variable.parameter))
+
+(pparameter
+  (pattern
+    (identifier
+      (varid) @variable.parameter)))
+
+(puredecl
+  (binder
+    (qidentifier) @constant))
+
+; Named arguments
+(argument
+  [(identifier) (qimplicit)] @variable.parameter
+  "="
+  (expr))
+
+; Types
 
 (typecon
   [(varid) (qvarid)] @type)
@@ -151,26 +173,15 @@
   "effect"
   (varid) @type)
 
-(paramid
-  (identifier
-    (varid) @variable.parameter))
-
-(pparameter
-  (pattern
-    (identifier
-      (varid) @variable.parameter)))
-
-(puredecl
-  (binder
-    (qidentifier) @constant))
-      
-
 ; Function definitions
 
 (fundecl
   (identifier) @function)
 
 (puredecl
+  (qidentifier) @function)
+
+(externdecl
   (qidentifier) @function)
 
 ; Effect definitions/usages
@@ -205,11 +216,6 @@
 (ntlexpr
   (atom)
   (name) @function.call)
-
-(argument
-  [(identifier) (qimplicit)] @variable.parameter
-  "="
-  (expr))
 
 [(conid) (qconid)] @constructor
 

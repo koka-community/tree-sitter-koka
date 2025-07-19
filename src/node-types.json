@@ -27,6 +27,11 @@
     }
   },
   {
+    "type": "OP",
+    "named": true,
+    "fields": {}
+  },
+  {
     "type": "aexprs",
     "named": true,
     "fields": {},
@@ -228,6 +233,11 @@
         }
       ]
     }
+  },
+  {
+    "type": "behindmod",
+    "named": true,
+    "fields": {}
   },
   {
     "type": "binder",
@@ -1116,9 +1126,13 @@
     "named": true,
     "fields": {},
     "children": {
-      "multiple": false,
+      "multiple": true,
       "required": true,
       "types": [
+        {
+          "type": "behindmod",
+          "named": true
+        },
         {
           "type": "tbasic",
           "named": true
@@ -1328,7 +1342,17 @@
   {
     "type": "op",
     "named": true,
-    "fields": {}
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": false,
+      "types": [
+        {
+          "type": "OP",
+          "named": true
+        }
+      ]
+    }
   },
   {
     "type": "opclause",
