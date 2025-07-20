@@ -8,12 +8,12 @@
 ; Literals
 
 (string) @string
-(char) @character
+(char) @constant.character @character
 
 (escape) @string.escape
 
-(float) @number.float
-(int) @number
+(float) @constant.numeric.float @number.float
+(int) @constant.numeric.int @number
 
 ; Delimiters
 
