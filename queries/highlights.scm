@@ -216,9 +216,9 @@
   .
   ("(" (arguments)? ")"))
 
-; (ntlexpr
-;   (atom)
-;   (name) @function.call)
+(ntlexpr
+  (atom)
+  (name) @function.call)
 
 [(conid) (qconid)] @constructor
 
