@@ -19,6 +19,8 @@
 
 (matchrule "|" @punctuation.delimiter)
 
+(tatomic "|" @punctuation.delimiter)
+
 [
   ","
   "->"
