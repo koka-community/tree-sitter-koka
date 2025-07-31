@@ -493,8 +493,8 @@ module.exports = grammar({
     _qoperator: ($) => $.op,
     qidentifier: ($) => choice($.qvarid, $.qidop, $.identifier),
     identifier: ($) => choice($.varid, $.idop),
-    wildcard: ($) => choice($.WILDCARDID, "_"),
-    qimplicit: ($) => $.IMPLICITID,
+    wildcard: ($) => choice($._WILDCARDID, "_"),
+    qimplicit: ($) => $._IMPLICITID,
     qvarid: ($) => $.qid,
     varid: ($) =>
       choice(
@@ -741,8 +741,8 @@ module.exports = grammar({
       ),
     OP: ($) =>
       prec.right(seq($._symbols, optional($._end_continuation_signal))),
-    WILDCARDID: (_) => /_[a-zA-Z0-9_-]*/,
-    IMPLICITID: ($) => seq("?", choice($.qid, $.qidop, $.id, $.idop)),
+    _WILDCARDID: (_) => /_[a-zA-Z0-9_-]*/,
+    _IMPLICITID: ($) => seq("?", choice($.qid, $.qidop, $.id, $.idop)),
 
     // String
     string: ($) =>
