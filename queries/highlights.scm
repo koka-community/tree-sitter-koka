@@ -7,19 +7,19 @@
 
 ; Literals
 
-[
-  (string)
-  (char)
-] @string
+(string) @string
+(char) @constant.character
 
-(escape) @constant.character.escape
+(escape) @string.escape
 
 (float) @constant.numeric.float
-(int) @constant.numeric.integer
+(int) @constant.numeric.int
 
 ; Delimiters
 
 (matchrule "|" @punctuation.delimiter)
+
+(tatomic "|" @punctuation.delimiter)
 
 [
   ","
@@ -46,7 +46,6 @@
 
 [
   "as"
-  "behind"
   (externtarget)
   "forall"
   "handle"
@@ -55,22 +54,25 @@
   "infix"
   "infixl"
   "infixr"
-  "inject"
   "mask"
-  "other"
-  "pub"
-  "public"
+  (behindmod)
+  (pub)
   "some"
 ] @keyword
 
+; Lazy constructor
+(constructor
+  "lazy" @keyword)
+
+; Lazy match
+(matchexpr
+  "lazy" @keyword)
+
 [
-  "con"
-  "control"
+  (con)
   "ctl"
   "fn"
   "fun"
-  "rawctl"
-  "rcontrol"
 ] @keyword.function
 
 "with" @keyword.control
@@ -85,9 +87,9 @@
 
 [
   "import"
-  "include"
+  ;"include"
   "module"
-] @keyword.control.import
+] @keyword.import
 
 [
   "alias"
@@ -100,26 +102,22 @@
 
 [
   "abstract"
-  "co"
-  "extend"
   "extern"
-  "fbip"
   "final"
-  "fip"
-  "inline"
-  "linear"
+  (inlinemod)
+  (externinline)
+  (typemod)
+  (structmod)
+  (effectmod)
   "named"
-  "noinline"
-  "open"
-  "override"
-  "raw"
-  "rec"
-  "ref"
-  "reference"
-  "scoped"
-  "tail"
-  "value"
+  (override)
+  (controlmod)
+  ;"scoped" ; scoped is actually an effect modifier, but it is not in the current parser.
+  (tailmod)
 ] @keyword.storage.modifier
+
+(fipmod
+  ["fip" "fbip"] @keyword.storage.modifier)
 
 "return" @keyword.control.return
 
@@ -135,23 +133,40 @@
   (qidop)
 ] @operator
 
-; Identifiers
+(modulepath) @module
 
-(conid) @constructor
+; Variables
 
-(varid) @variable
+(pattern
+  (identifier
+    (varid) @variable))
 
-(qidop) @namespace
+(paramid
+  (identifier
+    (varid) @variable.parameter))
 
-(qconid) @namespace
+(pparameter
+  (pattern
+    (identifier
+      (varid) @variable.parameter)))
 
-(modulepath (varid) @namespace)
+(pparameter
+  (qimplicit) @variable.parameter)
 
-(qvarid
-  (qid) @namespace)
+(puredecl
+  (binder
+    (qidentifier) @constant))
+
+; Named arguments
+(argument
+  [(identifier) (qimplicit)] @variable.parameter
+  "="
+  (expr))
+
+; Types
 
 (typecon
-  (varid) @type)
+  [(varid) (qvarid)] @type)
 
 (tbinder
   (varid) @type)
@@ -163,73 +178,54 @@
   "effect"
   (varid) @type)
 
-(paramid
-  (identifier
-    (varid) @variable.parameter))
-
-(pparameter
-  (pattern
-    (identifier
-      (varid) @variable.parameter)))
-
-(puredecl
-  (binder
-    (identifier
-      [(varid) (idop)] @constant)))
-
 ; Function definitions
 
-(operation
-  (identifier
-    [(varid) (idop)] @function))
-
 (fundecl
-  (funid
-    (identifier
-      [(varid) (idop)] @function)))
+  (identifier) @function)
 
 (puredecl
-  (funid
-    (identifier
-      [(varid) (idop)] @function)))
+  (qidentifier) @function)
+
+(externdecl
+  (qidentifier) @function)
+
+; Effect definitions/usages
+
+(opclause
+  (qidentifier) @function)
+
+(operation
+  (identifier) @function)
+  
 
 ; Function calls
+
+(opexpr
+  (atom
+    (name) @function.call)
+  .
+  [
+    call: "(" (arguments)? ")"
+    trailing_lambda: [(block) (fnexpr)]
+  ])
+
+(opexpr
+  (atom)
+  (name) @function.call)
+
+(ntlexpr
+  (atom
+    (name) @function.call)
+  .
+  ("(" (arguments)? ")"))
+
+(ntlexpr
+  (atom)
+  (name) @function.call)
+
+[(conid) (qconid)] @constructor
 
 [
   "initially"
   "finally"
-] @function.special
-
-(appexpr
-  (appexpr
-    field: (atom
-      (qidentifier
-        [
-          (qvarid) @variable
-          (qidop) @variable
-          (identifier
-            [(varid) (idop)] @variable)
-        ])))
-  "[")
-
-(appexpr
-  field: (atom
-    (qidentifier
-      [
-        (qvarid) @function
-        (qidop) @function
-        (identifier
-          [(varid) (idop)] @function)
-      ])))
-
-(appexpr
-  function: (appexpr
-    (atom
-      (qidentifier
-        [
-          (qvarid) @function
-          (qidop) @function
-          (identifier
-            [(varid) (idop)] @function)
-        ])))
-  ["(" (block) (fnexpr)])
+] @function.builtin
