@@ -150,6 +150,9 @@
     (identifier
       (varid) @variable.parameter)))
 
+(pparameter
+  (qimplicit) @variable.parameter)
+
 (puredecl
   (binder
     (qidentifier) @constant))

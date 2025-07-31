@@ -1,32 +1,5 @@
 [
   {
-    "type": "IMPLICITID",
-    "named": true,
-    "fields": {},
-    "children": {
-      "multiple": false,
-      "required": true,
-      "types": [
-        {
-          "type": "id",
-          "named": true
-        },
-        {
-          "type": "idop",
-          "named": true
-        },
-        {
-          "type": "qid",
-          "named": true
-        },
-        {
-          "type": "qidop",
-          "named": true
-        }
-      ]
-    }
-  },
-  {
     "type": "OP",
     "named": true,
     "fields": {}
@@ -2031,7 +2004,19 @@
       "required": true,
       "types": [
         {
-          "type": "IMPLICITID",
+          "type": "id",
+          "named": true
+        },
+        {
+          "type": "idop",
+          "named": true
+        },
+        {
+          "type": "qid",
+          "named": true
+        },
+        {
+          "type": "qidop",
           "named": true
         }
       ]
@@ -2763,17 +2748,7 @@
   {
     "type": "wildcard",
     "named": true,
-    "fields": {},
-    "children": {
-      "multiple": false,
-      "required": false,
-      "types": [
-        {
-          "type": "WILDCARDID",
-          "named": true
-        }
-      ]
-    }
+    "fields": {}
   },
   {
     "type": "witheff",
@@ -2919,10 +2894,6 @@
   {
     "type": "?",
     "named": false
-  },
-  {
-    "type": "WILDCARDID",
-    "named": true
   },
   {
     "type": "[",

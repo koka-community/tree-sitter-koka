@@ -4208,7 +4208,7 @@
       "members": [
         {
           "type": "SYMBOL",
-          "name": "WILDCARDID"
+          "name": "_WILDCARDID"
         },
         {
           "type": "STRING",
@@ -4218,7 +4218,7 @@
     },
     "qimplicit": {
       "type": "SYMBOL",
-      "name": "IMPLICITID"
+      "name": "_IMPLICITID"
     },
     "qvarid": {
       "type": "SYMBOL",
@@ -6287,11 +6287,11 @@
         ]
       }
     },
-    "WILDCARDID": {
+    "_WILDCARDID": {
       "type": "PATTERN",
       "value": "_[a-zA-Z0-9_-]*"
     },
-    "IMPLICITID": {
+    "_IMPLICITID": {
       "type": "SEQ",
       "members": [
         {
