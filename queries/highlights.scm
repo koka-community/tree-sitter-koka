@@ -46,7 +46,6 @@
 
 [
   "as"
-  "ctx"
   (externtarget)
   "forall"
   "handle"
@@ -68,6 +67,9 @@
 ; Lazy match
 (matchexpr
   "lazy" @keyword)
+
+(ctxexpr
+  "ctx" @keyword)
 
 [
   (con)
