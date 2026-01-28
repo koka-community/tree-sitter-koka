@@ -68,6 +68,9 @@
 (matchexpr
   "lazy" @keyword)
 
+(ctxexpr
+  "ctx" @keyword)
+
 [
   (con)
   "ctl"
