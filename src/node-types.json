@@ -253,6 +253,7 @@
   {
     "type": "blockcomment",
     "named": true,
+    "extra": true,
     "fields": {},
     "children": {
       "multiple": true,
@@ -3077,7 +3078,8 @@
   },
   {
     "type": "linecomment",
-    "named": true
+    "named": true,
+    "extra": true
   },
   {
     "type": "mask",
