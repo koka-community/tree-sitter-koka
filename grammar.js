@@ -15,16 +15,16 @@ module.exports = grammar({
   rules: {
     program: ($) =>
       seq(
-        optional(seq(optional($.semis), "module", $.modulepath)),
+        optional(seq(optional($._semis), "module", $.modulepath)),
         choice(
           seq(
             $._open_brace_,
-            optional($.semis),
+            optional($._semis),
             optional($.declarations),
             $._close_brace_,
-            optional($.semis),
+            optional($._semis),
           ),
-          seq(optional($.semis), optional($.declarations)),
+          seq(optional($._semis), optional($.declarations)),
         ),
       ),
     eimport: ($) => seq($._IMPORT_EXTERN, $.externimpbody),
@@ -37,10 +37,10 @@ module.exports = grammar({
       ),
     modulepath: ($) => choice($.varid, $.qvarid),
     pub: (_) => "pub",
-    semis: ($) => repeat1(alias($._semi, ";")),
+    _semis: ($) => repeat1(alias($._semi, ";")),
     declarations: ($) =>
       repeat1(
-        seq(choice($.import, $.eimport, $.fixitydecl, $.topdecl), $.semis),
+        seq(choice($.import, $.eimport, $.fixitydecl, $.topdecl), $._semis),
       ),
     fixitydecl: ($) =>
       seq(
@@ -83,11 +83,11 @@ module.exports = grammar({
       choice(
         seq(
           $._open_brace_,
-          optional($.semis),
-          repeat1(seq($.externstat, $.semis)),
+          optional($._semis),
+          repeat1(seq($.externstat, $._semis)),
           $._close_brace_,
         ),
-        seq($._open_brace_, optional($.semis), $._close_brace_),
+        seq($._open_brace_, optional($._semis), $._close_brace_),
       ),
     externstat: ($) =>
       choice(
@@ -100,8 +100,8 @@ module.exports = grammar({
         seq("=", $.externimp),
         seq(
           $._open_brace_,
-          optional($.semis),
-          repeat1(seq($.externimp, $.semis)),
+          optional($._semis),
+          repeat1(seq($.externimp, $._semis)),
           $._close_brace_,
         ),
       ),
@@ -111,7 +111,7 @@ module.exports = grammar({
         seq(
           $.externtarget,
           $._open_brace_,
-          repeat1(seq($.externval, $.semis)),
+          repeat1(seq($.externval, $._semis)),
           $._close_brace_,
         ),
       ),
@@ -194,22 +194,22 @@ module.exports = grammar({
     typebody: ($) =>
       seq(
         $._open_brace_,
-        optional($.semis),
+        optional($._semis),
         optional($.constructors),
         $._close_brace_,
       ),
     typeid: ($) =>
       choice(
-        seq($._open_round_brace, optional($.commas), ")"),
+        seq($._open_round_brace, optional($._commas), ")"),
         seq($._open_square_brace, "]"),
         seq($._open_angle_brace, ">"),
         seq($._open_angle_brace, "|", ">"),
         $.varid,
         "ctx",
       ),
-    commas: ($) => repeat1($._comma),
+    _commas: ($) => repeat1($._comma),
     _comma: ($) => prec.right(seq(",", optional($._end_continuation_signal))),
-    constructors: ($) => repeat1(seq($.constructor, $.semis)),
+    constructors: ($) => repeat1(seq($.constructor, $._semis)),
     constructor: ($) =>
       choice(
         seq(
@@ -236,22 +236,22 @@ module.exports = grammar({
         seq($._open_round_brace, $.parameters, ")"),
         seq(
           $._open_brace_,
-          optional($.semis),
+          optional($._semis),
           optional($.sconparams),
           $._close_brace_,
         ),
       ),
     sconparams: ($) =>
-      seq($.parameter, $.semis, repeat(seq($.parameter, $.semis))),
+      seq($.parameter, $._semis, repeat(seq($.parameter, $._semis))),
     opdecls: ($) =>
       seq(
         $._open_brace_,
-        optional($.semis),
+        optional($._semis),
         optional($.operations),
         $._close_brace_,
       ),
     operations: ($) =>
-      seq($.operation, $.semis, repeat(seq($.operation, $.semis))),
+      seq($.operation, $._semis, repeat(seq($.operation, $._semis))),
     operation: ($) =>
       choice(
         seq(
@@ -342,8 +342,8 @@ module.exports = grammar({
     block: ($) =>
       seq(
         $._open_brace_,
-        optional($.semis),
-        repeat(seq($.statement, $.semis)),
+        optional($._semis),
+        repeat(seq($.statement, $._semis)),
         $._close_brace_,
       ),
     statement: ($) =>
@@ -372,7 +372,7 @@ module.exports = grammar({
           "match",
           $.ntlexpr,
           $._open_brace_,
-          optional($.semis),
+          optional($._semis),
           optional($.matchrules),
           $._close_brace_,
         ),
@@ -381,7 +381,7 @@ module.exports = grammar({
           "match",
           $.ntlexpr,
           $._open_brace_,
-          optional($.semis),
+          optional($._semis),
           optional($.matchrules),
           $._close_brace_,
         ),
@@ -525,7 +525,7 @@ module.exports = grammar({
     qconid: ($) => $.qconid,
     conid: ($) => $.conid,
     op: ($) => choice($.OP, ">", $._open_angle_brace, "|", ":="),
-    matchrules: ($) => repeat1(seq($.matchrule, $.semis)),
+    matchrules: ($) => repeat1(seq($.matchrule, $._semis)),
     matchrule: ($) =>
       choice(
         seq($.patterns, "|", $.expr, "->", $._blockexpr),
@@ -577,11 +577,11 @@ module.exports = grammar({
       choice(
         seq(
           $._open_brace_,
-          optional($.semis),
-          repeat1(seq($.opclausex, $.semis)),
+          optional($._semis),
+          repeat1(seq($.opclausex, $._semis)),
           $._close_brace_,
         ),
-        seq($._open_brace_, optional($.semis), $._close_brace_),
+        seq($._open_brace_, optional($._semis), $._close_brace_),
       ),
     opclausex: ($) =>
       choice(
@@ -667,7 +667,7 @@ module.exports = grammar({
         $.varid,
         $.qvarid,
         $.wildcard,
-        seq($._open_round_brace, $.commas, ")"),
+        seq($._open_round_brace, $._commas, ")"),
         seq($._open_square_brace, "]"),
         seq($._open_round_brace, "->", ")"),
         "ctx",
