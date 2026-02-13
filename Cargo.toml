@@ -7,7 +7,7 @@ license = "MIT"
 readme = "README.md"
 keywords = ["incremental", "parsing", "tree-sitter", "koka"]
 categories = ["parsing", "text-editors"]
-repository = "https://github.com/mtoohey31/tree-sitter-koka"
+repository = "https://github.com/koka-community/tree-sitter-koka"
 edition = "2021"
 autoexamples = false
 

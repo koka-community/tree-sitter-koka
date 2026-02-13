@@ -23,7 +23,7 @@
       }
     ],
     "links": {
-      "repository": "https://github.com/mtoohey31/tree-sitter-koka"
+      "repository": "https://github.com/koka-community/tree-sitter-koka"
     }
   },
   "bindings": {
