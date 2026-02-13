@@ -1,4 +1,4 @@
-module github.com/mtoohey31/tree-sitter-koka
+module github.com/koka-community/tree-sitter-koka
 
 go 1.22
 

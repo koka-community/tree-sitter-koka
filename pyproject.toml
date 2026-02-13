@@ -19,7 +19,7 @@ license.text = "MIT"
 readme = "README.md"
 
 [project.urls]
-Homepage = "https://github.com/mtoohey31/tree-sitter-koka"
+Homepage = "https://github.com/koka-community/tree-sitter-koka"
 
 [project.optional-dependencies]
 core = ["tree-sitter~=0.22"]
