@@ -240,10 +240,6 @@
       "required": false,
       "types": [
         {
-          "type": "semis",
-          "named": true
-        },
-        {
           "type": "statement",
           "named": true
         }
@@ -316,16 +312,11 @@
     }
   },
   {
-    "type": "commas",
-    "named": true,
-    "fields": {}
-  },
-  {
     "type": "conparams",
     "named": true,
     "fields": {},
     "children": {
-      "multiple": true,
+      "multiple": false,
       "required": false,
       "types": [
         {
@@ -334,10 +325,6 @@
         },
         {
           "type": "sconparams",
-          "named": true
-        },
-        {
-          "type": "semis",
           "named": true
         }
       ]
@@ -388,10 +375,6 @@
       "types": [
         {
           "type": "constructor",
-          "named": true
-        },
-        {
-          "type": "semis",
           "named": true
         }
       ]
@@ -511,10 +494,6 @@
           "named": true
         },
         {
-          "type": "semis",
-          "named": true
-        },
-        {
           "type": "topdecl",
           "named": true
         }
@@ -602,10 +581,6 @@
         {
           "type": "externstat",
           "named": true
-        },
-        {
-          "type": "semis",
-          "named": true
         }
       ]
     }
@@ -658,10 +633,6 @@
           "named": true
         },
         {
-          "type": "semis",
-          "named": true
-        },
-        {
           "type": "string",
           "named": true
         },
@@ -682,10 +653,6 @@
       "types": [
         {
           "type": "externimp",
-          "named": true
-        },
-        {
-          "type": "semis",
           "named": true
         }
       ]
@@ -1129,10 +1096,6 @@
         {
           "type": "ntlexpr",
           "named": true
-        },
-        {
-          "type": "semis",
-          "named": true
         }
       ]
     }
@@ -1166,10 +1129,6 @@
       "types": [
         {
           "type": "matchrule",
-          "named": true
-        },
-        {
-          "type": "semis",
           "named": true
         }
       ]
@@ -1378,10 +1337,6 @@
         {
           "type": "opclausex",
           "named": true
-        },
-        {
-          "type": "semis",
-          "named": true
         }
       ]
     }
@@ -1414,15 +1369,11 @@
     "named": true,
     "fields": {},
     "children": {
-      "multiple": true,
+      "multiple": false,
       "required": false,
       "types": [
         {
           "type": "operations",
-          "named": true
-        },
-        {
-          "type": "semis",
           "named": true
         }
       ]
@@ -1473,10 +1424,6 @@
       "types": [
         {
           "type": "operation",
-          "named": true
-        },
-        {
-          "type": "semis",
           "named": true
         }
       ]
@@ -1907,10 +1854,6 @@
         {
           "type": "modulepath",
           "named": true
-        },
-        {
-          "type": "semis",
-          "named": true
         }
       ]
     }
@@ -2079,18 +2022,9 @@
         {
           "type": "parameter",
           "named": true
-        },
-        {
-          "type": "semis",
-          "named": true
         }
       ]
     }
-  },
-  {
-    "type": "semis",
-    "named": true,
-    "fields": {}
   },
   {
     "type": "someforalls",
@@ -2375,15 +2309,11 @@
     "named": true,
     "fields": {},
     "children": {
-      "multiple": true,
+      "multiple": false,
       "required": false,
       "types": [
         {
           "type": "constructors",
-          "named": true
-        },
-        {
-          "type": "semis",
           "named": true
         }
       ]
@@ -2397,10 +2327,6 @@
       "multiple": false,
       "required": false,
       "types": [
-        {
-          "type": "commas",
-          "named": true
-        },
         {
           "type": "qvarid",
           "named": true
@@ -2640,10 +2566,6 @@
       "multiple": false,
       "required": false,
       "types": [
-        {
-          "type": "commas",
-          "named": true
-        },
         {
           "type": "varid",
           "named": true
