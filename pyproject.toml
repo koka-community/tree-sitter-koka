@@ -13,7 +13,7 @@ classifiers = [
   "Topic :: Text Processing :: Linguistic",
   "Typing :: Typed",
 ]
-authors = [{ name = "Matthew Toohey", email = "contact@mtoohey.com" }]
+authors = [{ name = "Koka-Community" }]
 requires-python = ">=3.9"
 license.text = "MIT"
 readme = "README.md"

@@ -2,7 +2,7 @@
   "name": "tree-sitter-koka",
   "version": "0.1.0",
   "description": "Koka grammar for tree-sitter",
-  "author": "Matthew Toohey <contact@mtoohey.com>",
+  "author": "Koka-Community",
   "dependencies": {
     "node-addon-api": "^8.5.0"
   },
