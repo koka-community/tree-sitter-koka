@@ -2,12 +2,12 @@
 name = "tree-sitter-koka"
 description = "Koka grammar for tree-sitter"
 version = "0.1.0"
-authors = ["Matthew Toohey <contact@mtoohey.com>"]
+authors = ["Koka-Community"]
 license = "MIT"
 readme = "README.md"
 keywords = ["incremental", "parsing", "tree-sitter", "koka"]
 categories = ["parsing", "text-editors"]
-repository = "https://github.com/mtoohey31/tree-sitter-koka"
+repository = "https://github.com/koka-community/tree-sitter-koka"
 edition = "2021"
 autoexamples = false
 
